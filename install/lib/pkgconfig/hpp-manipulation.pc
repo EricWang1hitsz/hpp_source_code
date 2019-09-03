@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-manipulation
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-manipulation
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-manipulation/doxygen-html
+
+Name: hpp-manipulation
+Description: Classes for manipulation planning.
+URL: 
+Version: 4.6.0
+Requires: hpp-core >= 4, hpp-constraints >= 4, hpp-statistics >= 1.1, hpp-wholebody-step >= 4
+Conflicts: 
+Libs: -L${libdir}  -lhpp-manipulation -L/usr/lib/x86_64-linux-gnu -lboost_regex
+Libs.private: 
+Cflags:  -I${includedir} -I/usr/include
+
+

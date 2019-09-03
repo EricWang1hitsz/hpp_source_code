@@ -1,0 +1,51 @@
+\form#0:$q_i += v_i$
+\form#1:$q_i += v_i \mbox{ modulo } 2\pi$
+\form#2:$\textbf{v}$
+\form#3:$\textbf{v} = q_1 - q_2$
+\form#4:$\lambda$
+\form#5:\begin{equation*} \forall \mathbf{q}_{joint}\ \ \ \ \ \ \|\mathbf {v}\| \leq \lambda \|\mathbf{\dot{q}}_{joint}\| \end{equation*}
+\form#6:$\mathbf{q}_{joint}$
+\form#7:$\mathbf{\dot{q}}_{joint}$
+\form#8:$\mathbf{v} = J(\mathbf{q})*\mathbf{\dot{q}} $
+\form#9:\begin{equation*} \forall \mathbf{q}_{joint}\ \ \ \ \ \ \|\omega\| \leq \lambda \|\mathbf{\dot{q}}_{joint}\| \end{equation*}
+\form#10:$\omega = J(\mathbf{q})*\mathbf{\dot{q}}$
+\form#11:$\mathbf{R}^n$
+\form#12:$n$
+\form#13:$\mathbf{R}^n \times SO(n) $
+\form#14:$SO(n) $
+\form#15:$SE(n) $
+\form#16:$\mathbf{R}$
+\form#17:$\mathbf{R}^2$
+\form#18:$\mathbf{R}^3$
+\form#19:$SE(2)$
+\form#20:$SE(3)$
+\form#21:$SO(2)$
+\form#22:$SO(3)$
+\form#23:$\mathbf{R}^2 \times SO(2)$
+\form#24:$\mathbf{R}^3 \times SO(3)$
+\form#25:$ \mathbf{p} = \mathbf{q} + \mathbf{v} $
+\form#26:$J_{\mathbf{q}}$
+\form#27:\begin{equation} \dot{\mathbf{p}} = J_{\mathbf{q}}\dot{\mathbf{q}} \end{equation}
+\form#28:$\mathbf{v}$
+\form#29:$[iq, iq+nq-1]$
+\form#30:$J_{Lg} (q [iq:iq+nq])$
+\form#31:$[iq:iq+nq]$
+\form#32:$J_{\mathbf{v}}$
+\form#33:\begin{equation} \dot{\mathbf{p}} = J_{\mathbf{v}}\dot{\mathbf{v}} \end{equation}
+\form#34:$\mathbf{q}$
+\form#35:$[iv, iv+nv-1]$
+\form#36:$J_{Lg} (q [iv:iv+nv])$
+\form#37:$[iv:iv+nv]$
+\form#38:$ \mathbf{v} = \mathbf{q}_1 - \mathbf{q}_0 $
+\form#39:$J_{0}$
+\form#40:$J_{1}$
+\form#41:\begin{equation} \dot{\mathbf{v}} = J_{0}\dot{\mathbf{q}_0} + J_{1}\dot{\mathbf{q}_1} \end{equation}
+\form#42:$ R^2 \times SO(2) $
+\form#43:$ R^3 \times SO(3) $
+\form#44:$ SE(2) $
+\form#45:$ SE(3) $
+\form#46:$(\cos \theta, \sin \theta)$
+\form#47:$\theta$
+\form#48:$Xi + Yj + Zk + W$
+\form#49:$(x,y,\cos\theta,\sin\theta)$
+\form#50:$(x,y,z,X,Y,Z,W)$

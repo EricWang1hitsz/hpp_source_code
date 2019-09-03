@@ -1,0 +1,75 @@
+// Copyright (C) 2019 by Joseph Mirabel, LAAS-CNRS.
+//
+// This file is part of the hpp-corbaserver.
+//
+// This software is provided "as is" without warranty of any kind,
+// either expressed or implied, including but not limited to the
+// implied warranties of fitness for a particular purpose.
+//
+// See the COPYING file for more information.
+
+#ifndef HPP_CORE_PATHS_IDL
+#define HPP_CORE_PATHS_IDL
+#include <hpp/common.idl>
+
+module hpp
+{
+  module core_idl {
+  typedef unsigned long long size_t;
+  interface PathVector;
+
+  interface Path
+  {
+    size_type outputSize () raises (Error);
+
+    size_type outputDerivativeSize () raises (Error);
+
+    value_type length () raises (Error);
+
+    floatSeq initial () raises (Error);
+
+    floatSeq end () raises (Error);
+
+    string str () raises (Error);
+
+    floatSeq call (in value_type t, out boolean success) raises (Error);
+    //-> operator()
+
+    floatSeq at (in value_type t, out boolean success) raises (Error);
+    //* vector_t res (get()->outputSize());
+    //* success = get()->at (t, res);
+    //* return vectorToFloatSeq (res);
+
+    floatSeq derivative (in value_type t, in short order) raises (Error);
+    //* vector_t res (get()->outputDerivativeSize());
+    //* get()->derivative (res, t, order);
+    //* return vectorToFloatSeq (res);
+
+    Path extract (in value_type tmin, in value_type tmax) raises (Error);
+
+    PathVector asVector () raises (Error);
+    //* PathPtr_t p = get();
+    //* PathVectorPtr_t pv =
+    //*   core::PathVector::create (p->outputSize(), p->outputDerivativeSize());
+    //* pv->appendPath (p);
+    //*
+    //* return makeServant<hpp::core_idl::PathVector_ptr>
+    //*   (server_, new PathVector (server_, pv));
+  }; // interface Path
+
+  interface PathVector : Path {
+    size_t numberPaths () raises (Error);
+
+    Path pathAtRank (in size_t rank) raises (Error);
+
+    void appendPath (in Path p) raises (Error);
+
+    void concatenate (in PathVector p) raises (Error);
+  }; // interface PathVector
+
+  }; // module core
+}; // module hpp
+//* #include <hpp/core/path.hh>
+//* #include <hpp/core/path-vector.hh>
+
+#endif // HPP_CORE_PATHS_IDL

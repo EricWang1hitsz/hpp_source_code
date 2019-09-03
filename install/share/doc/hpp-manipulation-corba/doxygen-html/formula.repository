@@ -1,0 +1,4 @@
+\form#0:$ \frac{w_i}{\sum_j{w_j}} $
+\form#1:$ w_j $
+\form#2:$ stateFrom.grasps[i_g] \neq stateTo.grasps[i_g] $
+\form#3:$ \forall i \neq i_g, stateFrom.grasps[i] = stateTo.grasps[i] $

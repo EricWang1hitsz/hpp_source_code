@@ -1,0 +1,6 @@
+<map id="hpp::corbaServer::core_idl::DistanceServant&lt; _Base, _Storage &gt;" name="hpp::corbaServer::core_idl::DistanceServant&lt; _Base, _Storage &gt;">
+<area shape="rect" id="node6" href="$a00064.html" title="hpp::corbaServer::core\l_idl::WeighedDistanceServant\l\&lt; _Base, _Storage \&gt;" alt="" coords="80,392,279,448"/>
+<area shape="rect" id="node2" href="$a00051.html" title="hpp::corbaServer::Servant\lBase\&lt; core::Distance, \l_Storage \&gt;" alt="" coords="21,184,196,240"/>
+<area shape="rect" id="node3" href="$a00007.html" title="hpp::corbaServer::Abstract\lServantBase\&lt; core::Distance \&gt;" alt="" coords="5,95,212,136"/>
+<area shape="rect" id="node4" href="$a00008.html" title="Abstract class used to avoid duplication of the servants. " alt="" coords="19,5,198,47"/>
+</map>

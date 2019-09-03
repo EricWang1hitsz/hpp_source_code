@@ -1,0 +1,171 @@
+// Copyright (c) 2014 CNRS
+// Author: Florent Lamiraux
+//
+// This file is part of hpp-manipulation-corba.
+// hpp-manipulation-corba is free software: you can redistribute it
+// and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation, either version
+// 3 of the License, or (at your option) any later version.
+//
+// hpp-manipulation-corba is distributed in the hope that it will be
+// useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Lesser Public License for more details.  You should have
+// received a copy of the GNU Lesser General Public License along with
+// hpp-manipulation-corba.  If not, see
+// <http://www.gnu.org/licenses/>.
+
+#ifndef HPP_MANIPULATION_CORBA_ROBOT_IDL
+#define HPP_MANIPULATION_CORBA_ROBOT_IDL
+
+#include <hpp/common.idl>
+
+module hpp
+{
+  module corbaserver {
+  module manipulation {
+  interface Robot
+  {
+    ///  Insert robot model as a child of the root joint of the Device
+    ///
+    /// \param robotName key of the robot in ProblemSolver object map
+    ///        (see hpp::manipulation::ProblemSolver::addRobot)
+    /// \param rootJointType type of root joint among "anchor", "freeflyer",
+    /// "planar",
+    /// \param packageName Name of the ROS package containing the model,
+    /// \param modelName Name of the package containing the model
+    /// \param urdfSuffix suffix for urdf file,
+    ///
+    /// The ros url are built as follows:
+    /// "package://${packageName}/urdf/${modelName}${urdfSuffix}.urdf"
+    /// "package://${packageName}/srdf/${modelName}${srdfSuffix}.srdf"
+    ///
+    void insertRobotModel (in string robotName, in string rootJointType,
+        in string packageName, in string modelName, in string urdfSuffix,
+        in string srdfSuffix)
+      raises (Error);
+
+    /// \copydoc hpp::corbaserver::manipulation::robot::Robot::insertRobotModelOnFrame
+    void insertRobotModelOnFrame (in string robotName, in string frameName,
+        in string rootJointType, in string packageName, in string modelName,
+        in string urdfSuffix, in string srdfSuffix)
+      raises (Error);
+
+    ///  Insert robot model as a child of the root joint of the Device
+    ///
+    /// \param robotName key of the robot in ProblemSolver object map
+    ///        (see hpp::manipulation::ProblemSolver::addRobot)
+    /// \param rootJointType type of root joint among "anchor", "freeflyer",
+    /// "planar",
+    /// \param urdfString urdf file,
+    /// \param srdfString srdf file. Can be empty.
+    void insertRobotModelFromString (in string robotName, in string rootJointType,
+        in string urdfString, in string srdfString)
+      raises (Error);
+
+    /// Load a SRDF for the robot. Several SRDF can thus be loaded for the same
+    /// robot
+    void insertRobotSRDFModel (in string robotName, in string packageName,
+        in string modelName, in string srdfSuffix)
+      raises (Error);
+
+    ///  Insert humanoid robot model as a child of the root joint of the Device
+    ///
+    /// \param robotName key of the robot in ProblemSolver object map
+    ///        (see hpp::manipulation::ProblemSolver::addRobot)
+    /// \param rootJointType type of root joint among "anchor", "freeflyer",
+    /// "planar",
+    /// \param packageName Name of the ROS package containing the model,
+    /// \param modelName Name of the package containing the model
+    /// \param urdfSuffix suffix for urdf file,
+    ///
+    /// The ros url are built as follows:
+    /// "package://${packageName}/urdf/${modelName}${urdfSuffix}.urdf"
+    /// "package://${packageName}/srdf/${modelName}${srdfSuffix}.srdf"
+    ///
+    void insertHumanoidModel (in string robotName, in string rootJointType,
+        in string packageName, in string modelName, in string urdfSuffix,
+        in string srdfSuffix)
+      raises (Error);
+
+    ///  Insert humanoid robot model as a child of the root joint of the Device
+    ///
+    /// \param robotName key of the robot in ProblemSolver object map
+    ///        (see hpp::manipulation::ProblemSolver::addRobot)
+    /// \param rootJointType type of root joint among "anchor", "freeflyer",
+    /// "planar",
+    /// \param urdfString urdf file,
+    /// \param srdfString srdf file. Can be empty.
+    ///
+    void insertHumanoidModelFromString (in string robotName, in string rootJointType,
+        in string urdfString, in string srdfString)
+      raises (Error);
+
+    /// \deprecated use insertRobotModel(in string, in string, in string, in string, in string, in string) instead
+    void insertObjectModel (in string objectName, in string rootJointType,
+        in string packageName, in string modelName, in string urdfSuffix,
+        in string srdfSuffix)
+      raises (Error);
+
+    void loadEnvironmentModel (in string packageName, in string envModelName,
+        in string urdfSuffix, in string srdfSuffix, in string prefix)
+      raises (Error);
+
+    /// Get the position of root joint of a robot in world frame
+    /// \param robotName key of the robot in ProblemSolver object map.
+    Transform_ getRootJointPosition (in string robotName)
+      raises (Error);
+
+    /// Set the position of root joint of a robot in world frame
+    /// \param robotName key of the robot in ProblemSolver object map.
+    /// \param position constant position of the root joint in world frame in
+    ///        initial configuration.
+    void setRootJointPosition (in string robotName, in Transform_ position)
+      raises (Error);
+
+    /// Add Gripper to a robot
+    ///
+    /// \param linkName name of the link (hpp::model::Body) holding the gripper,
+    /// \param gripperName name of the gripper,
+    /// \param handlePositioninJoint position of the handle in the joint frame.
+    void addGripper (in string linkName, in string gripperName, 
+        in Transform_ handlePositioninJoint)
+      raises (Error);
+
+    /// Add Handle to an object
+    ///
+    /// \param linkName name of the link (hpp::model::Body) holding the handle,
+    /// \param handleName name of the handle,
+    /// \param localPosition position of the handle in the joint frame.
+    void addHandle (in string linkName, in string handleName,
+        in Transform_ localPosition)
+      raises (Error);
+
+    /// Add axial handle to an object
+    ///
+    /// \param linkName name of the link (hpp::model::Body) holding the handle,
+    /// \param handleName name of the handle,
+    /// \param localPosition position of the handle in the joint frame,
+    ///        rotation around x-axis is not constrained.
+    void addAxialHandle (in string linkName, in string handleName,
+        in Transform_ localPosition)
+      raises (Error);
+
+    /// Return the joint name in which a gripper is and the position relatively
+    /// to the joint
+    string getGripperPositionInJoint (in string gripperName,
+        out Transform_ position)
+      raises (hpp::Error);
+
+    /// Return the joint name in which a handle is and the position relatively
+    /// to the joint
+    string getHandlePositionInJoint (in string handleName,
+        out Transform_ position)
+      raises (hpp::Error);
+
+  }; // interface Robot
+  }; // module manipulation
+  }; // module corbaserver
+}; // module hpp
+
+#endif // HPP_MANIPULATION_CORBA_ROBOT_IDL

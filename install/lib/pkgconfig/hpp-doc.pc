@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-doc
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-doc
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-doc/doxygen-html
+
+Name: hpp-doc
+Description: Documentation for HPP
+URL: https://humanoid-path-planner.github.io/hpp-doc/index.html
+Version: 4.4.0-rc-34-g52aa
+Requires: hpp-fcl, hpp-util, pinocchio, hpp-pinocchio, hpp-core, hpp-corbaserver, hpp-constraints, hpp-wholebody-step, hpp-manipulation, hpp-manipulation-urdf, hpp-manipulation-corba, gepetto-viewer, gepetto-viewer-corba, hpp-gepetto-viewer, hpp_tutorial
+Conflicts: 
+Libs: -L${libdir} 
+Libs.private: 
+Cflags:  -I${includedir}
+
+

@@ -1,0 +1,387 @@
+// Copyright (c) 2014, LAAS-CNRS
+// Authors: Joseph Mirabel (joseph.mirabel@laas.fr)
+//
+// This file is part of hpp-manipulation.
+// hpp-manipulation is free software: you can redistribute it
+// and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation, either version
+// 3 of the License, or (at your option) any later version.
+//
+// hpp-manipulation is distributed in the hope that it will be
+// useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Lesser Public License for more details.  You should have
+// received a copy of the GNU Lesser General Public License along with
+// hpp-manipulation. If not, see <http://www.gnu.org/licenses/>.
+
+
+#ifndef HPP_MANIPULATION_CORBA_GRAPH_IDL
+#define HPP_MANIPULATION_CORBA_GRAPH_IDL
+
+#include "hpp/corbaserver/manipulation/gcommon.idl"
+#include <hpp/common.idl>
+
+module hpp {
+  module corbaserver {
+    module manipulation {
+      typedef sequence <Names_t> Namess_t;
+
+      /// Describe a rule to link or not, a gripper and a handle.
+      struct Rule {
+	Names_t grippers;
+	Names_t handles;
+	boolean link;
+      };
+      typedef sequence<Rule> Rules;
+
+      interface Graph {
+        /// Initialize the graph of constraints and add it to the ProblemSolver map.
+        /// \note The composite hpp::manipulation::robot must be completely defined first.
+        long createGraph(in string graphName)
+          raises (Error);
+
+        void deleteGraph(in string graphName)
+          raises (Error);
+
+        /// Select the graph of contraints from the ProblemSolver map.
+        /// \note The composite hpp::manipulation::robot must be completely defined first.
+        void selectGraph(in string graphName)
+          raises (Error);
+
+        /// Create a subgraph of the constraint graph for one particular end-effector.
+        long createSubGraph(in string subgraphName)
+          raises (Error);
+
+        void setTargetNodeList(in ID subgraph, in IDseq nodes)
+          raises (Error);
+
+        /// Add a node to the graph.
+        /// \param subGraphId is the ID of the subgraph to which the node should be added.
+        /// \param nodeName the name of the new node.
+        /// \param waypoint true when the node is a waypoint
+        /// \param priority integer used to order the states. If two states have
+        ///                 the same priority, then the order is the order of
+        ///                 creation.
+        long createNode (in long subGraphId, in string nodeName, in boolean waypoint, in long priority)
+          raises (Error);
+
+        /// Add an edge between two nodes of the graph.
+        /// \param nodeFromId, nodeToId the ID of the ends of the new edge.
+        /// \param edgeName name of the new edge.
+        /// \param weight weight of the edge.
+	/// \param isInNodeId id of the node in which paths of the edge are
+	///        included.
+        long createEdge (in long nodeFromId, in long nodeToId, in string edgeName, in long weight, in long isInNodeId)
+          raises (Error);
+
+        /// Set in which node an edge is.
+        /// \param edgeId the ID of the edge,
+        /// \param nodeId the ID of the node in which the edge is.
+        void setContainingNode (in ID edgeId, in ID nodeId)
+          raises (Error);
+
+        /// Get in which node an edge is.
+        /// \param edgeId the ID of the edge,
+	/// \return the name of the containing node.
+        string getContainingNode (in ID edgeId)
+          raises (Error);
+
+        /// Add an edge with waypoint between two nodes of the graph.
+        /// \param nodeFromId, nodeToId the ID of the ends of the new edge.
+        /// \param edgeBaseName basename of the new edge.
+        /// \param weight weight of the edge.
+        long createWaypointEdge (in long nodeFromId, in long nodeToId,
+				 in string edgeName, in long number,
+				 in long weight, in long isInNode)
+          raises (Error);
+
+        /// Get waypoint IDs of an edge.
+        /// \param edgeId the ID of the edge.
+        /// \param index index of the waypoint.
+        /// \return the ID of the edge and the node associated with the node.
+        long getWaypoint (in long edgeId, in long index, out ID nodeId)
+          raises (Error);
+
+        void setWaypoint (in ID waypointEdgeId, in long index,
+            in ID edgeId, in ID nodeId)
+          raises (Error);
+
+        /// Get full graph
+        /// \return a structure with all the IDs and names
+        void getGraph (out GraphComp graph, out GraphElements elmts)
+          raises (Error);
+
+        void getEdgeStat (in ID edgeId, out Names_t reasons, out intSeq freqs)
+          raises (Error);
+
+        /// Get the number of nodes in the roadmap being in the node nodeId of the graph
+        /// \return freqPerConnectedComponent is a vector of same number, by connected components.
+        /// \warning The connected components of the roadmap are in no specific order.
+        long getFrequencyOfNodeInRoadmap (in ID nodeId, out intSeq freqPerConnectedComponent)
+          raises (Error);
+
+        /// Get config projector statistics
+        /// \param output config, path object containing the number of success
+        ///                       and the number of times a config projector has
+        ///                       been called.
+        /// \return true if the given has a config projector, false otherwise
+        boolean getConfigProjectorStats (in ID elmt, out ConfigProjStat config, out ConfigProjStat path)
+          raises (Error);
+
+        /// Add an edge of type LevelSetEdge between two nodes.
+        /// \param nodeFromId, nodeToId the ID of the ends of the new edge.
+        /// \param edgeName name of the new edge.
+        /// \param weight weight of the edge.
+	/// \param isInNodeId id of the node in which paths of the edge are
+	///        included.
+        long createLevelSetEdge(in long nodeFromId, in long nodeToId, in string edgeName, in long weight, in ID isInNodeId)
+          raises (Error);
+
+        /// \deprecated use addLevelSetFoliation
+        void setLevelSetFoliation (in long edgeId, in Names_t condNC, in Names_t condLJ, in Names_t paramNC, in Names_t paramPassiveJoints, in Names_t paramLJ)
+          raises (Error);
+
+        /// Add the constraints to a LevelSetEdge that create the foliation.
+        /// \param edgeId if of a LevelSetEdge of the graph.
+        /// \param condNC, condLJ numerical constraints and locked joints that define the foliated manifold
+        /// \param paramNC, paramPassiveJoints, paramLJ numerical constraints and locked joints that parametrize the foliation
+        /// \note If passiveDofsNames is a shorter list than constraintNames, passiveDofsNames is extended with an empty string,
+        ///       which corresponds to an empty vector of passive dofs.
+        void addLevelSetFoliation (in long edgeId, in Names_t condNC, in Names_t condLJ, in Names_t paramNC, in Names_t paramPassiveJoints, in Names_t paramLJ)
+          raises (Error);
+
+	/// Reset the numerical constraints and the locked joints of a component.
+        /// \param graphComponentId ID of the component.
+	void resetConstraints(in long graphComponentId) raises (Error);
+
+        /// \deprecated use addNumericalConstraints
+        void setNumericalConstraints (in long graphComponentId, in Names_t constraintNames, in Names_t passiveDofsNames)
+          raises (Error);
+
+        /// Add the numerical constraints to a component.
+        /// \param graphComponentId ID of the component.
+        /// \param constraintNames is an array of names of constraints in the ProblemSolver map.
+        /// \param passiveDofsNames array of names of vector of passive dofs in the ProblemSolver map.
+        /// \note If passiveDofsNames is a shorter list than constraintNames, passiveDofsNames is extended with an empty string,
+        ///       which corresponds to an empty vector of passive dofs.
+        void addNumericalConstraints (in long graphComponentId, in Names_t constraintNames, in Names_t passiveDofsNames)
+          raises (Error);
+
+	/// Get the list of numerical constraints applied to a component.
+	/// \param graphComponentId Id of the component.
+	/// \return the list of constraints name.
+	void getNumericalConstraints (in long graphComponentId, out Names_t constraintNames)
+	  raises (Error);
+
+	/// Get the list of locked joints in a component.
+	/// \param graphComponentId Id of the component.
+	/// \return the list of joints name.
+	void getLockedJoints (in long graphComponentId, out Names_t constraintNames)
+	  raises (Error);
+
+        /// \deprecated use addNumericalConstraintsForPath
+        void setNumericalConstraintsForPath (in long nodeId, in Names_t constraintNames, in Names_t passiveDofsNames)
+          raises (Error);
+
+        /// Add the numerical constraints for path to a node.
+        /// \param nodeId ID of the node.
+        /// \param constraintNames is an array of names of constraints in the ProblemSolver map.
+        /// \param passiveDofsNames array of names of vector of passive dofs in the ProblemSolver map.
+        /// \note If passiveDofsNames is a shorter list than constraintNames, passiveDofsNames is extended with an empty string,
+        ///       which corresponds to an empty vector of passive dofs.
+        void addNumericalConstraintsForPath (in long nodeId, in Names_t constraintNames, in Names_t passiveDofsNames)
+          raises (Error);
+
+        /// \deprecated use addLockedDofConstraints
+        void setLockedDofConstraints (in long graphComponentId, in Names_t constraintNames)
+          raises (Error);
+
+        /// Add the LockedDof constraints to a component.
+        /// \param graphComponentId ID of the component.
+        /// \param constraintNames is an array of names of constraints in the ProblemSolver map.
+        void addLockedDofConstraints (in long graphComponentId, in Names_t constraintNames)
+          raises (Error);
+
+	/// Remove collision pairs from an edge
+	///
+	///  \param edgeId id of the edge,
+	///  \param joint1, joint2, names of the joints defining the pair.
+	void removeCollisionPairFromEdge (in ID edgeId, in string joint1,
+					  in string joint2) raises (Error);
+
+        /// Get the node corresponding to the state of the configuration.
+        /// \param dofArray the configuration.
+        /// \return the ID corresponding to the node.
+        void getNode (in floatSeq dofArray, out ID nodeId)
+          raises (Error);
+
+	/// Get error of a config with respect to a node constraint
+	///
+	/// \param nodeId id of the node.
+	/// \param config Configuration,
+	/// \retval error the error of the node constraint for the
+	///        configuration
+	/// \return whether the configuration belongs to the node.
+	/// Call method core::ConstraintSet::isSatisfied for the node
+	/// constraints.
+	boolean getConfigErrorForNode (in ID nodeId, in floatSeq config,
+				       out floatSeq errorVector) raises (Error);
+
+	/// Get error of a config with respect to an edge constraint
+	///
+	/// \param edgeId id of the edge.
+	/// \param config Configuration,
+	/// \retval error the error of the edge constraint for the
+	///        configuration
+	/// \return whether the configuration can be the start point of a
+	///         path of the edge.
+	/// Call methods core::ConfigProjector::rightHandSideFromConfig with
+	/// the input configuration and then core::ConstraintSet::isSatisfied
+	/// on the edge constraints.
+	boolean getConfigErrorForEdge (in ID EdgeId, in floatSeq config,
+				       out floatSeq errorVector) raises (Error);
+
+	/// Get error of a config with respect to an edge foliation leaf
+	///
+	/// \param edgeId id of the edge.
+	/// \param leafConfig Configuration that determines the foliation leaf,
+	/// \param config Configuration the error of which is computed
+	/// \retval error the error
+	/// \return whether config can be the end point of a path of the edge
+	///         starting at leafConfig
+	/// Call methods core::ConfigProjector::rightHandSideFromConfig with
+	/// leafConfig and then core::ConstraintSet::isSatisfied with config.
+	/// on the edge constraints.
+	boolean getConfigErrorForEdgeLeaf
+	(in ID EdgeId, in floatSeq leafConfig, in floatSeq config,
+	 out floatSeq errorVector) raises (Error);
+
+	/// Get error of a config with respect to the target of an edge foliation leaf
+	///
+	/// \param edgeId id of the edge.
+	/// \param leafConfig Configuration that determines the foliation leaf,
+	/// \param config Configuration the error of which is computed
+	/// \retval error the error
+	/// \return whether config can be the end point of a path of the edge
+	///         starting at leafConfig
+	/// Call methods core::ConfigProjector::rightHandSideFromConfig with
+	/// leafConfig and then core::ConstraintSet::isSatisfied with config.
+	/// on the edge constraints.
+	boolean getConfigErrorForEdgeTarget
+	(in ID EdgeId, in floatSeq leafConfig, in floatSeq config,
+	 out floatSeq errorVector) raises (Error);
+
+	/// Print set of constraints relative to a node in a string
+	///
+	/// \param config Configuration,
+	/// \param nodeId id of the node.
+	/// \return string displaying constraints
+	void displayNodeConstraints (in ID nodeId, out string constraints)
+	  raises (Error);
+
+	/// Print set of constraints relative to an edge in a string
+	///
+	/// \param config Configuration,
+	/// \param edgeId id of the edge.
+	/// \return string displaying constraints of the edge and of the target
+	///         node
+	void displayEdgeTargetConstraints (in ID edgeId, out string constraints)
+	  raises (Error);
+
+	/// Print set of constraints relative to an edge in a string
+	///
+	/// \param config Configuration,
+	/// \param edgeId id of the edge.
+	/// \return string displaying path constraints of the edge
+	void displayEdgeConstraints (in ID edgeId, out string constraints)
+	  raises (Error);
+
+	/// Get nodes connected by an edge
+	///
+	/// \param edgeId id of the edge
+	/// \param from name of the node the edge starts from,
+	/// \param to name of the node the edge finishes in.
+	void getNodesConnectedByEdge (in ID edgeId, out string from,
+				      out string to) raises (Error);
+
+        void display (in string filename)
+          raises (Error);
+
+        void getHistogramValue (in ID edgeId, out floatSeq freq, out floatSeqSeq values)
+          raises (Error);
+
+        void setShort (in ID edgeId, in boolean isShort)
+          raises (Error);
+
+        boolean isShort (in ID edgeId)
+          raises (Error);
+
+	/// Automatically build a constraint graph
+	///
+	/// \param graphName name of the graph,
+	/// \param grippers list of gripper names,
+	/// \param objects list of object names,
+	/// \param handlesPerObject list of lists of handles, one list per
+	///        object
+	/// \param contactsPerObject list of lists of contact surfaces, one list
+	///        per object
+	/// \param envNames list of names of contact surfaces in the
+	///        environment,
+	/// \param list of rules.
+	///
+	/// \note We consider a robot with two grippers, three objects with
+	///   respectively two, one and one handles, and respectively one, two
+	///   and one contact surface.
+	/// \code
+	/// grippers = ['gripper_1', 'gripper_2']
+	/// objects = ['object_1', 'object_2', 'object_3']
+	/// handlesPerObject = [['object_1/handle_1','object_1/handle_2',],
+	///    ['object_2/handle_1',], ['object_3/handle_1',]]
+	/// contactsPerObject = [['object_1/contact_1',],
+	///    ['object_2/contact_1','object_2/contact_2',],
+	///    ['object_3/contact_1',]]
+	/// from hpp.corbaserver.manipulation import Rule
+	/// rules = [Rule(['gripper_1'], ['object_1/handle_2'], True),
+	///          Rule(['gripper_1'], ['object_3/handle_1'], True),]
+	/// \endcode
+        ///
+        // \par allows to create two separated notes.
+        /// \par
+        /// \note In the rules, gripper and handle names are treated as
+        ///       regular expressions as defined in http://www.boost.org/doc/libs/1_58_0/libs/regex/doc/html/boost_regex/syntax/basic_syntax.html .
+        ///       Pay attention to the version of boost you use.
+        /// \note When creating placement constraints for object "foo", if a
+        ///       constraint with name "place_foo" already exists, the
+        ///       constraint will be used as placement constraint. In this case,
+        ///       if defined, constraint "preplace_foo" will be used as
+        ///       preplacement constraint, if not defined, no preplacement
+        ///       waypoint will be inserted in the graph. If constraint
+        ///       "place_foo" is not defined, it will be created with selected
+        ///       environment and object contact surface.
+        intSeq autoBuild (in string graphName,
+            in Names_t grippers, in Names_t objects,
+            in Namess_t handlesPerObject, in Namess_t contactsPerObject,
+	    in Names_t envNames, in Rules rulesList)
+          raises (Error);
+
+        void setWeight (in ID edgeID, in long weight)
+          raises (Error);
+
+        long getWeight (in ID edgeID)
+          raises (Error);
+
+        string getName (in ID elmtID)
+          raises (Error);
+
+        /// This must be called when the graph has been built.
+        void initialize ()
+          raises (Error);
+
+        void getRelativeMotionMatrix (in ID edgeID, out intSeqSeq matrix)
+          raises (Error);
+      }; // interface Graph
+    }; // module manipulation
+  }; // module corbaserver
+}; // module hpp
+
+#endif // HPP_MANIPULATION_CORBA_GRAPH_IDL

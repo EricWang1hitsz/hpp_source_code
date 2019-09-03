@@ -1,0 +1,494 @@
+// Copyright (C) 2009, 2010, 2011, 2012, 1013, 2014 CNRS
+// Authors:  Florent Lamiraux, Thomas Moulard.
+//
+// This file is part of the hpp-corbaserver.
+//
+// This software is provided "as is" without warranty of any kind,
+// either expressed or implied, including but not limited to the
+// implied warranties of fitness for a particular purpose.
+//
+// See the COPYING file for more information.
+
+#ifndef HPP_CORBASERVER_ROBOT_SERVER_IDL
+#define HPP_CORBASERVER_ROBOT_SERVER_IDL
+#include <hpp/common.idl>
+
+module hpp
+{
+  module corbaserver {
+  /// Creation of a device, joints and bodies.
+  interface Robot {
+    /// \name Loading URDF files
+    /// \{
+
+    ///  Load robot model
+    ///
+    /// \param robotName Name of the robot that is constructed,
+    /// \param rootJointType type of root joint among "anchor", "freeflyer",
+    /// "planar",
+    /// \param packageName Name of the ROS package containing the model,
+    /// \param modelName Name of the package containing the model
+    /// \param urdfSuffix suffix for urdf file,
+    ///
+    /// The ros url are built as follows:
+    /// - \c package://${packageName}/urdf/${modelName}${urdfSuffix}.urdf
+    /// - \c package://${packageName}/srdf/${modelName}${srdfSuffix}.srdf
+    ///
+    void loadRobotModel (in string robotName, in string rootJointType,
+			 in string packageName, in string modelName,
+			 in string urdfSuffix, in string srdfSuffix)
+      raises (Error);
+
+    ///  Load humanoid robot model
+    ///
+    /// \param robotName Name of the robot that is constructed,
+    /// \param rootJointType type of root joint among "anchor", "freeflyer",
+    /// "planar",
+    /// \param packageName Name of the ROS package containing the model,
+    /// \param modelName Name of the package containing the model
+    /// \param urdfSuffix suffix for urdf file,
+    ///
+    /// The ros url are built as follows:
+    /// - \c package://${packageName}/urdf/${modelName}${urdfSuffix}.urdf
+    /// - \c package://${packageName}/srdf/${modelName}${srdfSuffix}.srdf
+    ///
+    void loadHumanoidModel (in string robotName, in string rootJointType,
+			    in string packageName, in string modelName,
+			    in string urdfSuffix, in string srdfSuffix)
+      raises (Error);
+
+    ///  Load robot model
+    ///
+    /// \param robotName Name of the robot that is constructed,
+    /// \param rootJointType type of root joint among "anchor", "freeflyer",
+    /// "planar",
+    /// \param urdfString urdf string,
+    /// \param srdfString srdf string.
+    ///
+    void loadRobotModelFromString (in string robotName, in string rootJointType,
+                                   in string urdfString, in string srdfString)
+      raises (Error);
+
+    ///  Load humanoid robot model
+    ///
+    /// \param robotName Name of the robot that is constructed,
+    /// \param rootJointType type of root joint among "anchor", "freeflyer",
+    /// "planar",
+    /// \param urdfString urdf string,
+    /// \param srdfString srdf string.
+    ///
+    void loadHumanoidModelFromString (in string robotName, in string rootJointType,
+			              in string urdfString, in string srdfString)
+      raises (Error);
+
+    /// \}
+
+    /// \name Degrees of freedom
+    /// \{
+
+    /// Get size of configuration
+    /// \return size of configuration
+    long getConfigSize () raises (Error);
+
+    /// Get size of velocity
+    /// \return size of velocity
+    long getNumberDof () raises (Error);
+
+    /// \}
+
+    /// \name Joints
+    /// \{
+
+    /// Get joint names in the same order as in the configuration
+    /// \note anchor joints are not exported.
+    Names_t getJointNames () raises (Error);
+
+    /// Get joint types in the same order as in the configuration
+    Names_t getJointTypes () raises (Error);
+
+    /// Get all joint names including anchor joints
+    Names_t getAllJointNames () raises (Error);
+
+    /// Get the parent joint of a joint
+    /// \input jointName any joint (anchor or movable).
+    /// \return the parent joint (can be an anchor joint)
+    string getParentJointName (in string jointName) raises (Error);
+
+    /// Get configuration of a joint in robot configuration
+    ///
+    /// \param jointName name of the joint,
+    /// \return the segment of the robot current configuration correponding to
+    ///         the joint.
+    floatSeq getJointConfig(in string jointName) raises (Error);
+
+    /// Set configuration of a joint in robot configuration
+    ///
+    /// \param jointName name of the joint,
+    /// \param config Configuration of the joint.
+    ///
+    /// Size of config should fit hpp::pinocchio::Joint::configSize.
+    ///
+    /// Modify the part of the robot current configuration
+    /// correponding to the joint and recompute forward kinematics
+    void setJointConfig(in string jointName, in floatSeq config) raises (Error);
+
+    /// Get joint type.
+    ///
+    /// \param jointName name of the joint,
+    string getJointType(in string jointName) raises (Error);
+
+    /// Integrate velocity of a joint starting from joint configuration
+    ///
+    /// \param jointCfg a joint configuration
+    /// \param jointName name of the joint,
+    /// \param speed velocity vector of the joint
+    /// \param saturate the joint configuration within joint bounds.
+    /// \return the resulting configuration
+    ///
+    /// Size of speed should fit hpp::pinocchio::Joint::numberDof.
+    floatSeq jointIntegrate(in floatSeq jointCfg, in string jointName, in floatSeq speed, in boolean saturate) raises (Error);
+
+    /// Get joint Transformation
+    /// \param jointName name of the joint
+    /// \throw Error if robot is not set or it joint does not exist.
+    floatSeqSeq getCurrentTransformation(in string jointName) raises (Error);
+
+    /// Get joint position
+    /// \param jointName name of the joint
+    /// \throw Error if robot is not set or if joint does not exist.
+    Transform_ getJointPosition (in string jointName) raises (Error);
+
+    /// Get position of a list of joints in world frame
+    /// \note This method is thread safe
+    TransformSeq getJointsPosition (in floatSeq q, in Names_t jointNames) raises (Error);
+
+    /// Get joint velocity
+    /// expressed in the world frame, at the center of the world
+    /// \param jointName name of the joint
+    /// \throw Error if robot is not set or if joint does not exist.
+    floatSeq getJointVelocity (in string jointName) raises (Error);
+
+    /// Get joint velocity
+    /// expressed in the joint frame, at the center of the joint
+    /// \param jointName name of the joint
+    /// \throw Error if robot is not set or if joint does not exist.
+    floatSeq getJointVelocityInLocalFrame (in string jointName) raises (Error);
+
+    /// Get the initial joint position (when config parameter corresponds to the identity)
+    /// \param jointName name of the joint
+    /// \throw Error if robot is not set or if joint does not exist.
+    Transform_ getJointPositionInParentFrame (in string jointName) raises (Error);
+
+    /// Get position of root joint in world frame
+    /// \return constant position of the root joint in world frame in
+    ///         initial configuration.
+    Transform_ getRootJointPosition () raises (Error);
+
+    /// Set position of root joint in world frame
+    /// \param position constant position of the root joint in world frame in
+    ///        initial configuration.
+    void setRootJointPosition (in Transform_ position) raises (Error);
+
+    /// Set the static position of joint WRT its parent
+    /// \param position constant position of the joint
+    void setJointPositionInParentFrame (in string jointName, in Transform_ position)
+      raises (Error);
+
+    /// Get joint number degrees of freedom
+    /// \param jointName name of the joint
+    /// \throw Error if robot is not set or if joint does not exist.
+    long getJointNumberDof (in string jointName) raises (Error);
+
+    /// Get joint number config size
+    /// \param jointName name of the joint
+    /// \throw Error if robot is not set or if joint does not exist.
+    long getJointConfigSize (in string jointName) raises (Error);
+
+    ///  set bounds for a joint
+
+    /// \param jointName name of the joint
+    /// \param inJointBound sequence of joint dof bounds in order
+    ///        [v0_min,v0_max,v1_min,v1_max,...].
+    /// \li If vi_min > vi_max, dof of rank i is not bounded.
+    /// \li If size of sequence is different from twice the number of dofs,
+    ///     raise error.
+    /// \note The roadmap must be reset after all the joints bounds has been set.
+    ///       See Problem::resetRoadmap
+    void setJointBounds(in string jointName,
+			in floatSeq inJointBound)
+      raises (Error);
+
+    /// Get bounds for a joint
+    ///
+    /// \param jointName name of the joint
+    /// \return sequence of bounds in order [v0_min,v0_max,v1_min,v1_max,...]
+    ///         where vi_min, vi_max are the bounds of the i-th degree of
+    ///         freedom of the joint if the degree of freedom is bounded, 1, 0
+    ///         otherwise.
+    floatSeq getJointBounds(in string jointName) raises (Error);
+
+    /// Get link position in world frame
+    ///
+    /// Joints are oriented in a different way as in urdf standard since
+    /// rotation and uni-dimensional translation joints act around or along
+    /// their x-axis. This method returns the current position of the urdf link
+    /// in world frame.
+    ///
+    /// \param jointName name of the joint
+    /// \return position of the link in world frame.
+    Transform_ getLinkPosition (in string linkName) raises (Error);
+
+    /// Get position of a list of links in world frame
+    /// \note This method is thread safe
+    TransformSeq getLinksPosition (in floatSeq q, in Names_t linkName) raises (Error);
+
+    /// Get link names
+    ///
+    /// \param jointName name of the joint,
+    /// \return names of the links.
+    Names_t getLinkNames (in string jointName) raises (Error);
+
+    /// \}
+
+    /// \name Extra configuration space
+    /// \{
+
+    /// Set dimension of the extra configuration space
+    ///
+    /// \param dimension dimension
+    /// \sa hpp::pinocchio::ExtraConfigSpace
+    void setDimensionExtraConfigSpace (in unsigned long dimension)
+      raises (Error);
+
+    /// Get the dimension of the extra configuration space
+    ///
+    /// \sa hpp::pinocchio::ExtraConfigSpace
+    unsigned long getDimensionExtraConfigSpace ()
+      raises (Error);
+
+    /// Set bounds of extra configuration variables
+    /// \param inJointBound sequence of joint dof bounds in order
+    ///        [v0_min,v0_max,v1_min,v1_max,...].
+    /// \li If vi_min > vi_max, dof of rank i is not bounded.
+    /// \li If size of sequence is different from twice the number of dofs,
+    ///     raise error.
+    void setExtraConfigSpaceBounds (in floatSeq bounds) raises (Error);
+
+    /// \}
+
+    /// \name Configuration
+    /// \{
+
+    /// Get current configuration
+    /// \return dofArray Array of degrees of freedom.
+    floatSeq getCurrentConfig() raises (Error);
+
+    /// Shoot random configuration
+    /// \return dofArray Array of degrees of freedom.
+    floatSeq shootRandomConfig() raises (Error);
+
+    /// Set current configuration of specified robot,
+    /// \param dofArray Array of degrees of freedom /
+    void setCurrentConfig(in floatSeq dofArray) raises (Error);
+
+    /// Get current velocity
+    /// \param qDot Array of degrees of freedom
+    floatSeq getCurrentVelocity() raises (Error);
+
+    /// Set current velocity
+    /// \param qDot Array of degrees of freedom
+    void setCurrentVelocity(in floatSeq qDot) raises (Error);
+
+    /// \}
+
+    /// \name Bodies
+    /// \{
+
+    ///  Get the list of objects attached to a joint.
+    /// \param inJointName name of the joint.
+    /// \return list of names of CollisionObject attached to the body.
+    Names_t getJointInnerObjects (in string jointName) raises (Error);
+
+
+    ///  Get list of collision objects tested with the body attached to a joint
+    /// \param inJointName name of the joint.
+    /// \return list of names of CollisionObject
+    Names_t getJointOuterObjects (in string jointName) raises (Error);
+
+    /// Get the position of an object of the robot
+    ///
+    /// \param objectName name of the object.
+    /// \retval cfg Position of the obstacle.
+    /// \throw Error.
+    void getObjectPosition (in string objectName, out Transform_ cfg)
+      raises (Error);
+
+    /// \}
+
+    /// \name Collision checking and distance computation
+    /// \{
+
+    /// Test the validity of a configuration
+    ///
+    /// Check whether current configuration of robot is valid by calling
+    /// hpp::core::ConfigValidations object stored in Problem.
+    /// \retval validity whether configuration is valid
+    /// \retval report the reason why the config is not valid.
+    void isConfigValid (in floatSeq dofArray, out boolean validity,
+			out string report) raises (Error);
+
+
+    /// Compute distances between bodies and obstacles
+    ///
+    /// \retval distances list of distances,
+    /// \retval innerObjects names of the objects belonging to a body
+    /// \retval outerObjects names of the objects tested with inner objects,
+    /// \retval innerPoints closest points on the body,
+    /// \retval outerPoints closest points on the obstacles
+    /// \note outer objects for a body can also be inner objects of another
+    /// body.
+    void distancesToCollision (out floatSeq distances,
+			       out Names_t innerObjects,
+			       out Names_t outerObjects,
+			       out floatSeqSeq innerPoints,
+			       out floatSeqSeq outerPoints) raises (Error);
+
+    /// Check each auto-collision pair for collision and return the result.
+    ///
+    /// \retval collide a list of boolean corresponding to the return value of
+    ///                 of collisionPairs
+    void autocollisionCheck (out boolSeq collide) raises (Error);
+
+    /// Returns the list of auto collision pairs.
+    ///
+    /// \retval innerObjects names of the objects belonging to a body
+    /// \retval outerObjects names of the objects tested with inner objects,
+    /// \retval active vector of boolean saying whether a collision pair is active
+    void autocollisionPairs (out Names_t innerObjects, out Names_t outerObjects, out boolSeq active) raises (Error);
+
+    void setAutoCollision (in string innerObject, in string outerObject, in boolean active) raises (Error);
+
+    /// Get the aligned axes bounding box around the robot.
+    floatSeq getRobotAABB () raises (Error);
+
+    /// \}
+
+    /// \name Mass and inertia
+    /// \{
+
+    /// Get mass of robot
+    double getMass () raises (Error);
+
+    /// Get position of center of mass
+    floatSeq getCenterOfMass () raises (Error);
+
+    /// Get velocity of center of mass
+    floatSeq getCenterOfMassVelocity () raises (Error);
+
+    /// Get Jacobian of the center of mass
+    floatSeqSeq getJacobianCenterOfMass () raises (Error);
+
+    /// Add an object to compute a partial COM of the robot.
+    /// \param name of the partial com
+    /// \param jointNames names of each ROOT of the joint trees to consider.
+    /// \note Joints are added recursively, it is not possible so far to add a
+    /// joint without addind all its children.
+    void addPartialCom (in string comName, in Names_t jointNames)
+        raises (Error);
+
+    /// Get position of partial center of mass
+    floatSeq getPartialCom (in string comName) raises (Error);
+
+    /// Get Jacobian of the partial center of mass
+    floatSeqSeq getJacobianPartialCom (in string comName) raises (Error);
+
+    /// Get the velocity of the partial center of mass
+    floatSeq getVelocityPartialCom (in string comName)
+      raises (Error);
+
+    /// Get the name of the current robot.
+    string getRobotName () raises (Error);
+
+    /// \}
+
+    /// \name Create and register robot
+    /// \{
+
+    /// Create an empty device
+    /// \param robotName name of the robot.
+    void createRobot(in string robotName) raises (Error);
+
+    // Create a new joint
+    // \param parentJoint name of the parent joint,
+    // \param jointName name of the joint,
+    // \param jointType among ["FreeFlyer", "Planar",
+    //                         "RX", "RY", "RZ",
+    //                         "RUBX", "RUBY",
+    //                         "RUBZ",
+    //                         "PX", "PY", "PZ",
+    //                         "Translation"]
+    // \param pos initial position of the joint
+    // \param joinBounds bounds of the joint. See setJointBounds for details.
+    // \note In the joint types, R stands for Rotation, RUB stands for 
+    //       Rotation UnBounded, P stands for Prismatic. Translation is 3D.
+    void appendJoint(in string parentJoint,
+                     in string jointName, in string jointType,
+		     in Transform_ pos)
+      raises (Error);
+
+    ///  create an empty polyhedron.
+    /// \param inPolyName name of the polyhedron.
+    /// \throw Error.
+    void createPolyhedron(in string inPolyName) raises (Error);
+
+    ///  Create a box
+    /// \param name name of the box
+    /// \param x, y, z Size of the box
+    void createBox (in string name, in double x, in double y, in double z)
+      raises (Error);
+
+    ///  Create a sphere
+    /// \param name name of the sphere
+    /// \param radius radius of the sphere
+    void createSphere (in string name, in double radius) raises (Error);
+
+    ///  Create a cylinder
+    /// \param name name of the cylinder
+    /// \param radius radius of the cylinder
+    /// \param length length of the cylinder
+    void createCylinder (in string name, in double radius, in double length) raises (Error);
+
+    ///  Add a point to a polyhedron
+    /// \param inPolyName the name of the polyhedron.
+    /// \param x coordinate of the point.
+    /// \param y coordinate of the point.
+    /// \param z coordinate of the point.
+    /// \return rank of point in polyhedron
+    unsigned long addPoint(in string inPolyName, in double x, in double y, in double z)
+      raises (Error);
+
+    ///  Add a point to a polyhedron
+    /// \param inPolyName the name of the polyhedron.
+    /// \param pt1 rank of first point in polyhedron.
+    /// \param pt2 rank of second point in polyhedron.
+    /// \param pt3 rank of third point in polyhedron.
+    /// \return rank of triangle in polyhedron
+    unsigned long addTriangle(in string inPolyName, in unsigned long pt1,
+		      in unsigned long pt2, in unsigned long pt3)
+      raises (Error);
+
+    ///  Attach an object to a joint.
+    /// \param jointName name of the body
+    /// \param objectName name of the object
+    /// \param pos relative position of the polyhedron in the body
+    void addObjectToJoint(in string jointName,
+                          in string objectName,
+			  in Transform_ pos)
+        raises (Error);
+
+    /// \}
+  };
+  };
+};
+
+#endif // HPP_CORBASERVER_ROBOT_SERVER_IDL

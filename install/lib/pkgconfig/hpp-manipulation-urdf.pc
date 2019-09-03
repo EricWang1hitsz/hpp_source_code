@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-manipulation-urdf
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-manipulation-urdf
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-manipulation-urdf/doxygen-html
+
+Name: hpp-manipulation-urdf
+Description: Implementation of a parser for hpp-manipulation.
+URL: https://github.com/jmirabel/hpp-manipulation-urdf
+Version: 4.5.0
+Requires: tinyxml >= 2.6, hpp-util >= 3.2, hpp-manipulation >= 4, pinocchio
+Conflicts: 
+Libs: -L${libdir}  -lhpp-manipulation-urdf
+Libs.private: 
+Cflags:  -I${includedir}
+
+

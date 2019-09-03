@@ -1,0 +1,18 @@
+<launch>
+
+  <param name="kitchen_description" 
+    textfile="$(find iai_maps)/urdf/kitchen_area.urdf"
+  />  
+  
+  <node pkg="tf" type="static_transform_publisher" name="kitchen_link_broadcaster" 
+    args="-3.45 -4.35 0 -3.141 0 0 /map /iai_kitchen/kitchen_link 200">
+  </node>
+
+  <node pkg="robot_state_chain_publisher" type="state_chain_publisher"
+    name="kitchen_state_publisher" output="screen">
+    <param name="tf_prefix" value="/iai_kitchen"/>
+    <param name="publish_frequency" value="2"/>
+    <remap from="robot_description" to="kitchen_description" />
+  </node>
+
+</launch>

@@ -1,0 +1,213 @@
+// Copyright (c) 2014 CNRS
+// Author: Florent Lamiraux
+//
+// This file is part of hpp-manipulation-corba.
+// hpp-manipulation-corba is free software: you can redistribute it
+// and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation, either version
+// 3 of the License, or (at your option) any later version.
+//
+// hpp-manipulation-corba is distributed in the hope that it will be
+// useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Lesser Public License for more details.  You should have
+// received a copy of the GNU Lesser General Public License along with
+// hpp-manipulation-corba.  If not, see
+// <http://www.gnu.org/licenses/>.
+
+#ifndef HPP_MANIPULATION_CORBA_PROBLEM_IDL
+#define HPP_MANIPULATION_CORBA_PROBLEM_IDL
+
+#include "hpp/corbaserver/manipulation/gcommon.idl"
+#include <hpp/common.idl>
+
+
+module hpp {
+  module corbaserver {
+    module manipulation {
+      interface Problem
+      {
+        /// Select a problem by its name.
+        /// If no problem with this name exists, a new
+        /// hpp::manipulation::ProblemSolver is created and selected.
+        /// \param name the problem name.
+        /// \return true if a new problem was created.
+        boolean selectProblem (in string name) raises (Error);
+
+        /// Reset the current problem.
+        void resetProblem () raises (Error);
+
+        /// Return a list of available elements of type type
+        /// \param type enter "type" to know what types I know of.
+        ///             This is case insensitive.
+        Names_t getAvailable (in string type) raises (Error);
+
+        /// Return a list of selected elements of type type
+        /// \param type enter "type" to know what types I know of.
+        ///             This is case insensitive.
+        /// \note For most of the types, the list will contain only one element.
+        Names_t getSelected (in string type) raises (Error);
+
+        /// Create grasp constraints between robot gripper and object handle
+	///
+	/// Creates two contraints between a handle and a gripper.
+	/// \li The first constraint named "${graspName}" is defined by
+	/// the type of handle. For instance, an axial handle defines
+	/// a five degree of freedom constraint with free rotation
+	/// around the x-axis.
+	/// \li the second constraint named "${graspName}/complement" is
+	/// the complement to the fully constraint
+	/// transformation. For the axial handle, it corresponds to
+	/// the rotation around x.
+	///
+	/// \param graspName prefix of the constraint names for storing in
+	///        ProblemSolver map,
+	/// \param gripperName name of the gripper used when it has been created
+	/// \param handleName name of the handle in the form "object/handle"
+	/// where object is the name of the object owning the handle and handle
+	/// is the name of the handle in this object.
+	/// \sa hpp::manipulation::Handle::createGrasp
+	void createGrasp (in string graspName, in string gripperName,
+			  in string handleName)
+	  raises (Error);
+
+	///Create pre-grasp constraints between robot gripper and object handle
+	///
+	/// Creates two contraints between a handle and a gripper.
+	/// \li The first constraint named "${name}" is the same as
+	/// the grasp defined in createGrasp, except that the
+	/// translation along x is not constrained. For instance, an
+	/// axial handle defines a four degree of freedom constraint
+	/// with free rotation and translation around/along the
+	/// x-axis,
+	/// \li the second constraint named "${name}/double_ineq" is a
+	/// double inequality on the relative x-position of the handle
+	/// and of the gripper.  the bounds of the inequality are for
+	/// now [-.001 c, 2.001 c].
+	///
+	/// \param name prefix of the constraint names for storing in
+	///        ProblemSolver map,
+	/// \param gripper name of the gripper used when it has been created
+	/// \param handle name of the handle in the form "object/handle"
+	/// where object is the name of the object owning the handle and handle
+	/// is the name of the handle in this object,
+	void createPreGrasp (in string name, in string gripper,
+			     in string handle) raises (Error);
+
+        Names_t getEnvironmentContactNames ()
+          raises (Error);
+
+        Names_t getRobotContactNames ()
+          raises (Error);
+
+        Names_t getEnvironmentContact (in string name, out intSeq indexes,
+                                       out floatSeqSeq points)
+          raises (Error);
+
+        Names_t getRobotContact (in string name, out intSeq indexes,
+                                 out floatSeqSeq points)
+          raises (Error);
+
+	/// Create a placement constraint between a shapes of robot and env.
+	///
+	/// \param placementName Name of the numerical constraint,
+	/// \param shapeName List of names of the list of shapes as stored in the
+	///        Device instance,
+	/// \param envContactName list of names of the list of shapes as stored in
+	///        ProblemSolver instance
+	///
+	/// A placement constraint specifies that surfaces delimited by
+	/// one shape of the robot and one shape of the environment
+	/// should have an intersection of positive area.
+        void createPlacementConstraint (in string placementName,
+            in Names_t shapeName, in Names_t envContactName)
+          raises (Error);
+
+	/// Create a pre-placement constraint between a shapes of robot and env.
+	///
+	/// \param placementName Name of the numerical constraint,
+	/// \param shapeName Name of the list of shapes as stored in the
+	///        Device instance,
+	/// \param envContactName Name of the list of shapes as stored in
+	///        ProblemSolver instance
+	/// \param width the approaching distance.
+	///
+	/// A pre-placement constraint specifies that surfaces delimited by
+	/// one shape of the robot and one shape of the environment
+	/// should have an intersection of positive area.
+        void createPrePlacementConstraint (in string placementName,
+            in Names_t shapeName, in Names_t envContactName, in double witdh)
+          raises (Error);
+
+        /// Create a QPStaticStability constraints
+        /// \param constraintName
+        /// \param shapesName list of the convex shape name of the robot on
+        ///        which forces are applied.
+        void createQPStabilityConstraint (in string constraintName,
+            in Names_t shapesName)
+          raises (Error);
+
+        /// Set the problem constraints to the specified constraint.
+        ///
+        /// \param idComp ID of a node or a configuration
+        /// \param target: ignored for states. For edges:
+        ///        \li true: uses the edge target constraint
+        ///        \li false: uses the edge path constraint
+        boolean setConstraints (in ID idComp, in boolean target)
+          raises (Error);
+
+        /// Apply constaints to a configuration
+        ///
+        /// \param idComp ID of a node or a configuration
+        /// \param input input configuration,
+        /// \retval output output configuration,
+        /// \retval error norm of the residual error.
+        boolean applyConstraints (in ID idComp, in floatSeq input, out floatSeq output,
+            out double residualError)
+          raises (Error);
+
+        /// Apply constaints to a configuration
+        ///
+        /// \param IDedge ID of an edge
+        /// \param qnear configuration to initiliaze the projector,
+        /// \param input input configuration,
+        /// \retval output output configuration,
+        /// \retval error norm of the residual error.
+	///
+	/// Call method using hpp::manipulation::graph::Edge::applyConstraints.
+        boolean applyConstraintsWithOffset (in ID IDedge, in floatSeq qnear, in floatSeq input, out floatSeq output,
+            out double residualError)
+          raises (Error);
+
+        /// Build a path from qb to qe using the Edge::build.
+        /// \param IDedge id of the edge to use.
+        /// \param qb configuration at the beginning of the path
+        /// \param qe configuration at the end of the path
+        /// \retval return true if the path is built and fully projected.
+        /// \retval indexNotProj -1 is the path could not be built. The index
+        ///                      of the built path (before projection) in the 
+        ///                      in the ProblemSolver path vector.
+        /// \retval indexProj -1 is the path could not be fully projected. The
+        ///                   index of the built path (before projection) in the 
+        ///                   in the ProblemSolver path vector.
+        /// No path validation is made. The paths can be retrieved using
+        /// corbaserver::Problem::configAtParam
+        boolean buildAndProjectPath (in ID IDedge, in floatSeq qb, in floatSeq qe, out long indexNotProj,
+            out long indexProj)
+          raises (Error);
+
+        /// Set a state of the constraint graph as target of the problem.
+        /// \warning when setTargetState is called, goal configurations are
+        ///          ignored.
+        void setTargetState(in ID IDstate) raises (Error);
+
+        /// Get the edge ID of the motion that generated the configuration
+        /// at the given parameter.
+        ID edgeAtParam (in unsigned long inPathId, in double atDistance, out string graphName)
+          raises (Error);
+      }; // interface Problem
+    }; // module manipulation
+  }; // module corbaserver
+}; // module hpp
+
+#endif // HPP_MANIPULATION_CORBA_ROBOT_IDL

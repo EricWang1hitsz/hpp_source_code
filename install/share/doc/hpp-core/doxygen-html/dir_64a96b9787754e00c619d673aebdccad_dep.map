@@ -1,0 +1,23 @@
+<map id="core" name="core">
+<area shape="rect" id="node2" href="dir_70ac0e6a30992a9a54291bf149f9ecc1.html" title="configuration&#45;shooter" alt="" coords="811,159,954,207"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000002_000008.html" title="1" alt="" coords="949,152,957,166"/>
+<area shape="rect" id="node3" href="dir_bc9fa5e8cdd5008052c848ca8474f1a0.html" title="continuous&#45;validation" alt="" coords="979,159,1123,207"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000002_000003.html" title="1" alt="" coords="1070,137,1078,152"/>
+<area shape="rect" id="node4" href="dir_45b841405583f8063da6fca81697c9f8.html" title="distance" alt="" coords="955,63,1027,111"/>
+<area shape="rect" id="node12" href="dir_496ce130a94e1872a7ac7e5fe7237067.html" title="steering&#45;method" alt="" coords="672,159,787,207"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000015_000004.html" title="1" alt="" coords="803,158,811,172"/>
+<area shape="rect" id="node5" href="dir_331a81a051cbf2972ca1ae0eeb84edeb.html" title="parser" alt="" coords="859,63,931,111"/>
+<area shape="rect" id="node6" href="dir_85ce5336a94d56d16f24603f847d49ca.html" title="path" alt="" coords="693,255,765,303"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000010_000004.html" title="1" alt="" coords="726,218,734,233"/>
+<area shape="rect" id="node7" href="dir_e4f867c7e50c51c3f06fcd3d08324f33.html" title="path&#45;optimization" alt="" coords="713,63,834,111"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000005_000010.html" title="2" alt="" coords="686,229,694,243"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000005_000004.html" title="3" alt="" coords="751,138,759,153"/>
+<area shape="rect" id="node8" href="dir_4ef7c8f21735c11c508bca9f05db6ddf.html" title="path&#45;planner" alt="" coords="595,63,688,111"/>
+<area shape="rect" id="node9" href="dir_a40fccf99955c781aa858e1e3fe021bd.html" title="path&#45;projector" alt="" coords="469,63,571,111"/>
+<area shape="rect" id="node10" href="dir_ea41a0808716c32090338f92b22101af.html" title="path&#45;validation" alt="" coords="339,63,445,111"/>
+<area shape="rect" id="node11" href="dir_f5c9389180647bce18cf1a9826136af1.html" title="problem&#45;target" alt="" coords="209,63,314,111"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000004_000010.html" title="1" alt="" coords="725,229,733,243"/>
+<area shape="rect" id="node13" href="dir_8488df1d6d3b08151d09c48f12fc359c.html" title="time&#45;parameterization" alt="" coords="37,63,184,111"/>
+<area shape="rect" id="clust2" href="dir_64a96b9787754e00c619d673aebdccad.html" alt="" coords="27,52,1133,313"/>
+<area shape="rect" id="clust1" href="dir_766a2b2ecef16448f861b8cf84e3a157.html" title="hpp" alt="" coords="16,16,1144,324"/>
+</map>

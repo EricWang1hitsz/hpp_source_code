@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-pinocchio
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-pinocchio
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-pinocchio/doxygen-html
+
+Name: hpp-pinocchio
+Description: Wrapping of the kinematic/dynamic chain Pinocchio for HPP.
+URL: https://github.com/humanoid-path-planner/hpp-pinocchio
+Version: 4.6.1-14-g222b
+Requires: hpp-util >= 3.2, pinocchio >= 2.1.2, eigen3 >= 3.2.92, romeo_description >= 0.2
+Conflicts: 
+Libs: -L${libdir}  -lhpp-pinocchio
+Libs.private: 
+Cflags:  -I${includedir} -I/usr/include
+
+

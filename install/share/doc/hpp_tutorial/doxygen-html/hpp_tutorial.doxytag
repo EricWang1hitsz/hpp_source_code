@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tagfile>
+  <compound kind="file">
+    <name>doc.hh</name>
+    <path>/local/devel/hpp/src/hpp_tutorial/include/hpp_tutorial/</path>
+    <filename>a00008</filename>
+  </compound>
+  <compound kind="file">
+    <name>robot.py</name>
+    <path>/local/devel/hpp/src/hpp_tutorial/src/hpp/corbaserver/pr2/</path>
+    <filename>a00009</filename>
+    <class kind="class">pr2::robot::Robot</class>
+    <namespace>pr2::robot</namespace>
+  </compound>
+  <compound kind="file">
+    <name>tutorial_1.hh</name>
+    <path>/local/devel/hpp/src/hpp_tutorial/include/hpp_tutorial/</path>
+    <filename>a00010</filename>
+  </compound>
+  <compound kind="file">
+    <name>tutorial_2.hh</name>
+    <path>/local/devel/hpp/src/hpp_tutorial/include/hpp_tutorial/</path>
+    <filename>a00011</filename>
+  </compound>
+  <compound kind="file">
+    <name>tutorial_3.hh</name>
+    <path>/local/devel/hpp/src/hpp_tutorial/include/hpp_tutorial/</path>
+    <filename>a00012</filename>
+  </compound>
+  <compound kind="class">
+    <name>pr2::robot::Robot</name>
+    <filename>a00007.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a904563bce7d36abdbb550755e4873398</anchor>
+      <arglist>(self, robotName, load=True, kwargs)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>string</type>
+      <name>packageName</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a0a43eb8c41751eabb2a6a563268c3f67</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>string</type>
+      <name>meshPackageName</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>ae5a719ddbac8e968f844c1c4cf1b4a41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>string</type>
+      <name>rootJointType</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a71ddd6eacc9112fe00cc465a85ac3e69</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>string</type>
+      <name>urdfName</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a71fbb67977490e58b1ea7a9f1e064c03</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>string</type>
+      <name>urdfSuffix</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a1b1a0428ae691a6d26deea64ca6c6040</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>string</type>
+      <name>srdfSuffix</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a42556dd64560430b1c278bcf61c3e1df</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>pr2</name>
+    <filename>a00013.html</filename>
+    <namespace>pr2::robot</namespace>
+  </compound>
+  <compound kind="namespace">
+    <name>pr2::robot</name>
+    <filename>a00014.html</filename>
+    <class kind="class">pr2::robot::Robot</class>
+  </compound>
+  <compound kind="page">
+    <name>hpp_tutorial_tutorial_1</name>
+    <title>Tutorial 1 - Python</title>
+    <filename>a00002</filename>
+    <docanchor file="a00002" title="Starting hppcorbaserver">hpp_tutorial_1_starting_hppcorbaserver</docanchor>
+    <docanchor file="a00002" title="Starting gepetto-gui">hpp_tutorial_1_starting_gui</docanchor>
+    <docanchor file="a00002" title="Controlling via a python terminal">hpp_tutorial_1_python</docanchor>
+    <docanchor file="a00002" title="Detailed explanation">hpp_tutorial_1_script</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>hpp_tutorial_tutorial_1_cpp</name>
+    <title>Tutorial 1 - C++</title>
+    <filename>a00003</filename>
+    <docanchor file="a00003" title="Understanding the source code.">hpp_tutorial_tutorial_1_cpp_source</docanchor>
+    <docanchor file="a00003" title="Execute the binary.">hpp_tutorial_tutorial_1_cpp_execution</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>hpp_tutorial_tutorial_2</name>
+    <title>Tutorial 2</title>
+    <filename>a00004</filename>
+    <docanchor file="a00004" title="Implementation of class Planner">hpp_tutorial_tutorial_2_class_planner</docanchor>
+    <docanchor file="a00004" title="Implementation of executable hpp-tutorial-2-server">hpp_tutorial_tutorial_2_hpp_tutorial_server</docanchor>
+    <docanchor file="a00004" title="Compilation and installation">hpp_tutorial_tutorial_2_CMakeLists</docanchor>
+    <docanchor file="a00004" title="Running the server and solving a problem.">hpp_tutorial_tutorial_2_running</docanchor>
+    <docanchor file="a00004" title="Moving the code into an external package">hpp_tutorial_tutorial_2_external_package</docanchor>
+    <docanchor file="a00004" title="Installation">hpp_tutorial_tutorial_2_external_package_installation</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>hpp_tutorial_tutorial_3</name>
+    <title>Tutorial 3</title>
+    <filename>a00005</filename>
+    <docanchor file="a00005" title="Starting hppcorbaserver">hpp_tutorial_3_starting_hpp_manipulation_server</docanchor>
+    <docanchor file="a00005" title="Controlling via a python terminal">hpp_tutorial_3_python</docanchor>
+    <docanchor file="a00005" title="Starting gepetto-gui">hpp_tutorial_3_starting_gui</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>index</name>
+    <title>Tutorials</title>
+    <filename>index</filename>
+    <docanchor file="index">hpp_tutorial_documentation</docanchor>
+    <docanchor file="index">hpp_core_documentation</docanchor>
+    <docanchor file="index" title="Introduction">hpp_pinocchio_intro</docanchor>
+    <docanchor file="index" title="What is Pinocchio?">OverviewIntro</docanchor>
+    <docanchor file="index" title="How to install Pinocchio?">OverviewInstall</docanchor>
+    <docanchor file="index" title="Simplest example with compilation command">OverviewSimple</docanchor>
+    <docanchor file="index" title="Compiling and running your program">OverviewSimpleCompile</docanchor>
+    <docanchor file="index" title="Explanation of the program">OverviewSimpleExplain</docanchor>
+    <docanchor file="index" title="More complex example with C++ and Python">OverviewComplex</docanchor>
+    <docanchor file="index" title="Compiling and running your program">OverviewComplexCompile</docanchor>
+    <docanchor file="index" title="Explanation of the program">OverviewComplexExplain</docanchor>
+    <docanchor file="index" title="About Python wrappings">OverviewPython</docanchor>
+    <docanchor file="index" title="How to cite Pinocchio">OverviewCite</docanchor>
+    <docanchor file="index" title="Where to go from here?">OverviewConclu</docanchor>
+    <docanchor file="index">hpp_constraints_documentation</docanchor>
+    <docanchor file="index">hpp_corbaserver_documentation</docanchor>
+    <docanchor file="index" title="Introduction">hppCorbaServer_sec_intro</docanchor>
+    <docanchor file="index" title="How to communicate with the CORBA server">hppCorbaServer_sec_howto</docanchor>
+    <docanchor file="index" title="How to embed a server in an application">hppCorbaServer_sec_embedding</docanchor>
+    <docanchor file="index" title="Introduction">hpp_template_corba_sec_intro</docanchor>
+    <docanchor file="index" title="Principle">hpp_template_corba_sec_principle</docanchor>
+    <docanchor file="index" title="How to">hpp_template_corba_sec_how_to</docanchor>
+    <docanchor file="index" title="Implementing the server">hpp_template_corba_subsec_server</docanchor>
+    <docanchor file="index" title="Implementing the client">hpp_template_corba_subsec_client</docanchor>
+    <docanchor file="index" title="Running the server and client">hpp_template_corba_subsec_running</docanchor>
+    <docanchor file="index">hpp_manipulation_corba_documentation</docanchor>
+    <docanchor file="index">hpp_manipulation_documentation</docanchor>
+    <docanchor file="index">hpp_wholebody_step_documentation</docanchor>
+    <docanchor file="index">hpp_manipulation_urdf_documentation</docanchor>
+    <docanchor file="index" title="Basic use">intro_sec</docanchor>
+    <docanchor file="index" title="SRDF syntax">hpp_manipulation_urdf_srdf_syntax</docanchor>
+    <docanchor file="index">Handle</docanchor>
+    <docanchor file="index">Gripper</docanchor>
+    <docanchor file="index">Contact</docanchor>
+    <docanchor file="index" title="Extend the parser">hpp_manipulation_urdf_extend_sec</docanchor>
+  </compound>
+</tagfile>

@@ -1,0 +1,23 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/gepetto-viewer-corba
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/gepetto-viewer-corba
+doxygendocdir=/local/devel/hpp/install/share/doc/gepetto-viewer-corba/doxygen-html
+
+Name: gepetto-viewer-corba
+Description: Corba server for gepetto-viewer
+URL: https://github.com/Gepetto/gepetto-viewer-corba
+Version: 5.3.0-4-gdb21
+Requires: omniORB4 >= 4.1.4, gepetto-viewer > 4.3.0
+Conflicts: 
+Libs: -L${libdir}  -lgepetto-viewer-corba
+Libs.private: 
+Cflags:  -I${includedir}
+
+qtversion=4.8.7
+cmake_plugin=/local/devel/hpp/install/share/gepetto-viewer/cmake/gepetto-viewer-plugin.cmake

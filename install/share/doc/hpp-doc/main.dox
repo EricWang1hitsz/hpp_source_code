@@ -1,0 +1,118 @@
+/**
+
+\mainpage Humanoid Path Planner Documentation
+
+\par Introduction
+
+HPP (Humanoid Path Planner) is a collection of software packages
+implementing path planning functionalities for a humanoid robot.
+The core functionalities are well suited to solve classical path planning problems.
+It can be extended to path planning for other types of robots like digital actors for instance.
+
+\par Installation
+
+Installation instructions can be found on
+<a target="_blank" href="https://humanoid-path-planner.github.io/hpp-doc/download.html">github</a>.
+
+\par Overview of the architecture
+
+The code relative to HPP is distributed into several software
+packages. See \ref hpp_doc_dependency_graph "dependency graph" for a quick
+view of the package hierarchy.
+
+The packages are distributed into the following categories:
+\li \ref hpp_doc_algorithms "Algorithms" implementing path planning functionalities
+\li \ref hpp_doc_corba_interface "Corba" communication facilities to control algorithms
+\li \ref hpp_doc_graphical_interface "Graphical user interface" to display configurations and paths.
+
+<table>
+  <tr><td width="50%">
+      <img src="../figures/archi.png" alt="Overview of the architecture" style="max-height: 50vh"/>
+  </td><td width="5%">
+  </td><td width="30%">
+    The algorithmic part, built on <a href='../../hpp-core/doxygen-html/index.html'>hpp-core</a> is
+    embedded in corba servers implemented by
+    <a href='../../hpp-corbaserver/doxygen-html/index.html'>hpp-corbaserver</a> or extensions like
+    <a href='../../hpp-manipulation-corba/doxygen-html/index.html'>hpp-manipulation-corba</a>.
+    The corba servers are linked to executable \c hppcorbaserver.
+    <p></p>
+    From a python terminal, clients to the corba servers can be created in order
+    to control the executable. The control of the application is performed via
+    idl interfaces and python classes available in \ref hpp_doc_corba_interface.
+    <p></p>
+    Results of path planning requests as well as individual configurations can
+    be displayed in \c gepetto-gui via package
+    <a href='../../hpp-gepetto-viewer/doxygen-html/index.html'>hpp-gepetto-viewer</a>.
+  </td></tr>
+</table>
+
+\par Getting started
+
+Package <a href='../../hpp_tutorial/doxygen-html/index.html'>hpp_tutorial</a> provides some examples of
+how to use this project.
+
+**/
+
+/**
+
+\page hpp_doc_algorithms Algorithms
+
+\section hpp_doc_algorithms_technical_tools Technical tools
+
+- <a href='../../hpp-util/doxygen-html/index.html'>hpp-util</a>: technical tools for the HPP project (logging, benchmark, quality assurance tools),
+
+\section hpp_doc_algorithms_motion_planning Motion planning for humanoid systems
+
+\par Kinematic chain with geometry
+- <a href='../../hpp-fcl/doxygen-html/index.html'>hpp-fcl</a>: Modified version of Flexible collision library, for collision detection and distance computation,
+- <a href='../../pinocchio/doxygen-html/index.html'>pinocchio</a>: implementation of kinematic chain with dynamic computations,
+- <a href='../../hpp-pinocchio/doxygen-html/index.html'>hpp-pinocchio</a>: Interface between pinocchio and hpp-core,
+
+\par Non linear constraints
+- <a href='../../hpp-constraints/doxygen-html/index.html'>hpp-constraints</a>: definition of some nonlinear constraints,
+
+\par Path planning
+- <a href='../../hpp-core/doxygen-html/index.html'>hpp-core</a>: definition of basic classes, path planning problems and solvers,
+
+\par Path Planning for humanoid robots
+- <a href='../../hpp-wholebody-step/doxygen-html/index.html'>hpp-wholebody-step</a>: whole-body and walk planning using sliding path approximation.
+
+\par Manipulation Planning
+- <a href='../../hpp-manipulation/doxygen-html/index.html'>hpp-manipulation</a>: Manipulation planning
+- <a href='../../hpp-manipulation-urdf/doxygen-html/index.html'>hpp-manipulation-urdf</a>: Manipulation planning
+
+**/
+
+/**
+
+\page hpp_doc_corba_interface Corba interfaces
+
+\par Packages implementing CORBA interfaces
+
+The following packages implement Corba communication functionalities
+\li <a href='../../hpp-corbaserver/doxygen-html/index.html'>hpp-corbaserver</a> : Corba server embedding a hpp::core::ProblemSolver instance.
+\li <a href='../../hpp-manipulation-corba/doxygen-html/index.html'>hpp-manipulation-corba</a> : Corba server for <a href='../../hpp-manipulation/doxygen-html/index.html'>hpp-manipulation</a>.
+
+ **/
+
+/**
+
+\page hpp_doc_graphical_interface Graphical user interface
+
+\par Packages implementing graphical user interface
+
+The following packages implement a corba connection with a graphical display
+\li <a href='../../gepetto-viewer/doxygen-html/index.html'>gepetto-viewer</a> : Graphical window based on OpenSceneGraph.
+\li <a href='../../gepetto-viewer-corba/doxygen-html/index.html'>gepetto-viewer-corba</a> : Corba interface to gepetto-gui.
+\li <a href='../../hpp-gepetto-viewer/doxygen-html/index.html'>hpp-gepetto-viewer</a> : Link between hpp and gepetto-viewer-corba.
+
+ **/
+
+/**
+
+\page hpp_doc_dependency_graph Dependencies
+
+Graph of dependencies between packages
+\dotfile graphDep.dot "Dependency graph"
+
+ **/

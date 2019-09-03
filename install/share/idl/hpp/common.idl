@@ -1,0 +1,41 @@
+// Copyright (C) 2009, 2010 by Florent Lamiraux, Thomas Moulard, JRL.
+//
+// This file is part of the hpp-corbaserver.
+//
+// This software is provided "as is" without warranty of any kind,
+// either expressed or implied, including but not limited to the
+// implied warranties of fitness for a particular purpose.
+//
+// See the COPYING file for more information.
+
+#ifndef HPP_COMMON_IDL
+#define HPP_COMMON_IDL
+
+module hpp
+{
+  typedef double value_type;
+  typedef long long size_type;
+
+  /// Sequence of names
+  typedef sequence <string> Names_t;
+  /// Corba exception travelling through the Corba channel
+  exception Error
+  {
+    string msg;
+  };
+  typedef sequence<boolean> boolSeq;
+  typedef sequence<long> intSeq;
+  typedef sequence<intSeq> intSeqSeq;
+  /// Robot configuration is defined by a sequence of dof value.
+  typedef sequence<double> floatSeq;
+  typedef sequence<floatSeq> floatSeqSeq;
+
+  /// Element of SE(3) represented by a vector and a unit quaternion
+  typedef double Transform_ [7];
+  typedef sequence<Transform_> TransformSeq;
+  /// Quaternion used to define orientation constraint
+  /// Add underscore to avoid name conflicts.
+  typedef double Quaternion_ [4];
+};
+
+#endif //! HPP_COMMON_IDL

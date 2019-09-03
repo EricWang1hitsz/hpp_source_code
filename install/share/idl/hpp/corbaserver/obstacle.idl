@@ -1,0 +1,153 @@
+// Copyright (C) 2009, 2010 by Florent Lamiraux, Thomas Moulard, JRL.
+//
+// This file is part of the hpp-corbaserver.
+//
+// This software is provided "as is" without warranty of any kind,
+// either expressed or implied, including but not limited to the
+// implied warranties of fitness for a particular purpose.
+//
+// See the COPYING file for more information.
+
+#ifndef HPP_CORBASERVER_OBSTACLE_SERVER_IDL
+#define HPP_CORBASERVER_OBSTACLE_SERVER_IDL
+#include <hpp/common.idl>
+
+module hpp
+{
+  module corbaserver {
+  /// \brief Obstacle management.
+  ///
+  interface Obstacle
+  {
+    /// Load obstacle from urdf file
+    ///
+    /// \param package Name of the package containing the model.
+    /// \param file If package is empty, this is the XML string to parse
+    ///             otherwise, this is the filename of the urdf file in the package
+    ///        (without suffix .urdf)
+    /// \param prefix prefix added to object names in case the same file is
+    ///        loaded several times
+    ///
+    /// The ros url is built as follows:
+    /// "package://${package}/urdf/${filename}.urdf"
+    ///
+    /// The kinematic structure of the urdf file is ignored. Only the geometric
+    /// objects are loaded as obstacles.
+    void loadObstacleModel (in string package, in string file,
+			    in string prefix)
+      raises (Error);
+
+    /// \brief Remove an obstacle from outer objects of a joint body
+    ///
+    /// \param objectName name of the object to remove,
+    /// \param jointName name of the joint owning the body,
+    /// \param collision whether collision with object should be ignored,
+    /// \param distance whether distance to object should be ignored.
+    /// \throw Error.
+    void removeObstacleFromJoint (in string objectName, in string jointName,
+				  in boolean collision, in boolean distance)
+      raises (Error);
+
+    /// Cut the obstacle with the given AABB
+    /// \param aabb a vector of 6 floats. The 3 first represent one corner
+    ///             and the 3 last represent the opposite corner.
+    void cutObstacle (in string objectName, in floatSeq aabb) raises (Error);
+
+    /// \brief Add an obstacle to the set of obstacles
+    ///
+    /// \param objectName name of the object.
+    /// \param collision whether collision with object should be computed
+    /// \param distance whether distance to object should be computed
+    /// \throw Error.
+    ///
+    /// \note The obstacle should have been built using one of methods
+    ///   \li hpp::Obstacle::createPolyhedron,
+    ///   \li hpp::Obstacle::createBox
+    ///   \li hpp::Obstacle::addPoint
+    ///   \li hpp::Obstacle::addTriangle.
+    ///
+    /// \note Build the bounding volume hierarchy of the object if needed.
+    void addObstacle (in string objectName, in boolean collision,
+		      in boolean distance) raises (Error);
+
+    /// \brief Move an obstacle to a given configuration.
+    /// \param objectName name of the polyhedron.
+    /// \param cfg the configuration of the obstacle.
+    /// \throw Error.
+    ///
+    /// \note The obstacle is not added to local map
+    /// impl::Obstacle::collisionListMap.
+    ///
+    /// \note Build the collision entity of polyhedron for KCD.
+    void moveObstacle (in string objectName, in Transform_ cfg)
+      raises (Error);
+
+    /// Get the position of an obstacle
+    ///
+    /// \param objectName name of the polyhedron.
+    /// \retval cfg Position of the obstacle.
+    /// \throw Error.
+    void getObstaclePosition (in string objectName, out Transform_ cfg)
+      raises (Error);
+
+    /// Get list of obstacles
+    ///
+    /// \param collision whether to return obstacle for collision,
+    /// \param distance whether to return obstacles for distance computation
+    /// \return list of obstacles
+    Names_t getObstacleNames (in boolean collision, in boolean distance)
+      raises (Error);
+
+    /// \}
+
+    /// \name Polyhedra
+    /// \{
+
+    /// \brief create an empty polyhedron.
+    /// \param polyName name of the polyhedron.
+    /// \throw Error.
+    void createPolyhedron (in string polyName)
+      raises (Error);
+
+    /// \brief Create a box
+    /// \param inBoxName name of the box
+    /// \param x, y, z Size of the box
+    void createBox (in string inBoxName, in double x, in double y, in double z)
+      raises (Error);
+
+    ///  Create a sphere
+    /// \param name name of the sphere
+    /// \param radius radius of the sphere
+    void createSphere (in string name, in double radius) raises (Error);
+
+    ///  Create a cylinder
+    /// \param name name of the cylinder
+    /// \param radius radius of the cylinder
+    /// \param length length of the cylinder
+    void createCylinder (in string name, in double radius, in double length) raises (Error);
+
+    /// \brief Add a point to a polyhedron
+    /// \param polyName the name of the polyhedron.
+    /// \param x coordinate of the point.
+    /// \param y coordinate of the point.
+    /// \param z coordinate of the point.
+    /// \return rank of point in polyhedron.
+    unsigned long addPoint (in string polyName, in double x, in double y, in double z)
+      raises (Error);
+
+    /// \brief Add a point to a polyhedron
+    /// \param polyName the name of the polyhedron.
+    /// \param pt1 rank of first point in polyhedron.
+    /// \param pt2 rank of second point in polyhedron.
+    /// \param pt3 rank of third point in polyhedron.
+    /// \return rank of triangle in polyhedron.
+    unsigned long addTriangle
+    (in string polyName, in unsigned long pt1,
+     in unsigned long pt2, in unsigned long pt3) raises (Error);
+
+    /// \}
+    };
+  };
+};
+
+#endif //! HPP_CORBASERVER_OBSTACLE_SERVER_IDL

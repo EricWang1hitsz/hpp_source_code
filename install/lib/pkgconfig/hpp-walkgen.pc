@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-walkgen
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-walkgen
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-walkgen/doxygen-html
+
+Name: hpp-walkgen
+Description: Walk generator for hpp framework
+URL: https://github.com/humanoid-path-planner/hpp-walkgen
+Version: 4.6.0
+Requires: eigen3 >= 3.2, hpp-util >= 3, hpp-constraints >= 4, hpp-pinocchio >= 4, hpp-core >= 4, roboptim-trajectory >= 1
+Conflicts: 
+Libs: -L${libdir}  -lhpp-walkgen
+Libs.private: 
+Cflags:  -I${includedir} -I/usr/include -DROBOPTIM_TRAJECTORY_32 -I/usr/include
+
+

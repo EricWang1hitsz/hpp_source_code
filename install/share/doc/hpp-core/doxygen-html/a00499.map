@@ -1,0 +1,5 @@
+<map id="hpp::core::StraightPath" name="hpp::core::StraightPath">
+<area shape="rect" id="node3" href="$a00051.html" title="Kino&#45;dynamic straight path. " alt="" coords="29,155,216,181"/>
+<area shape="rect" id="node2" href="$a00064.html" title="Abstraction of paths: mapping from time to configuration space. " alt="" coords="67,5,178,32"/>
+<area shape="rect" id="node4" href="$a00050.html" title="This class is similar to KinodynamicPath &#160;exept that the orientation of the robot always follow the d..." alt="" coords="5,229,240,256"/>
+</map>

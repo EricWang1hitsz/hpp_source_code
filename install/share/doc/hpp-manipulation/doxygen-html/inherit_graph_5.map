@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="/local/devel/hpp/install/share/doc/hpp-core/doxygen-html/hpp-core.doxytag$a00065.html" title="hpp::core::PathOptimizer" alt="" coords="5,190,172,217"/>
+<area shape="rect" id="node2" href="/local/devel/hpp/install/share/doc/hpp-core/doxygen-html/hpp-core.doxytag$a00082.html" title="hpp::core::pathOptimization\l::RandomShortcut" alt="" coords="244,5,427,47"/>
+<area shape="rect" id="node4" href="/local/devel/hpp/install/share/doc/hpp-core/doxygen-html/hpp-core.doxytag$a00097.html" title="hpp::core::pathOptimization\l::SplineGradientBasedAbstract\l\&lt; _PolynomeBasis, _SplineOrder \&gt;" alt="" coords="222,70,449,126"/>
+<area shape="rect" id="node7" href="$a00026.html" title="Path optimizer that recompute the edge parameter of the constraints. " alt="" coords="263,149,407,191"/>
+<area shape="rect" id="node8" href="$a00027.html" title="Path optimizer for paths created with the constraint graph. " alt="" coords="269,215,401,256"/>
+<area shape="rect" id="node9" href="$a00020.html" title="hpp::manipulation::\lpathOptimization::EnforceTransition\lSemantic" alt="" coords="220,279,451,335"/>
+<area shape="rect" id="node10" href="$a00046.html" title="Walking trajectory generator for paths created with the constraint graph. " alt="" coords="238,359,433,400"/>
+<area shape="rect" id="node3" href="$a00042.html" title="hpp::manipulation::\lpathOptimization::RandomShortcut" alt="" coords="499,5,725,47"/>
+<area shape="rect" id="node5" href="/local/devel/hpp/install/share/doc/hpp-core/doxygen-html/hpp-core.doxytag$a00096.html" title="hpp::core::pathOptimization\l::SplineGradientBased\&lt; \l_PolynomeBasis, _SplineOrder \&gt;" alt="" coords="505,70,719,126"/>
+<area shape="rect" id="node6" href="$a00047.html" title="hpp::manipulation::\lpathOptimization::SplineGradient\lBased\&lt; _PolynomeBasis, _SplineOrder \&gt;" alt="" coords="773,70,1037,126"/>
+</map>

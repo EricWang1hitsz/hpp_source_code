@@ -1,0 +1,23 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-corbaserver
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-corbaserver
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-corbaserver/doxygen-html
+
+Name: hpp-corbaserver
+Description: Corba server for Humanoid Path Planner applications
+URL: https://github.com/humanoid-path-planner/hpp-corbaserver
+Version: 4.6.1
+Requires: omniORB4 >= 4.1.4, omniDynamic4 >= 4.1.4, hpp-core >= 4, hpp-constraints >= 4, hpp-pinocchio > 4, hpp-template-corba >= 1.1
+Conflicts: 
+Libs: -L${libdir}  -lhpp-corbaserver
+Libs.private: 
+Cflags:  -I${includedir}
+
+
+cmake_plugin=/local/devel/hpp/install/share/hpp-corbaserver/cmake/hpp-corbaserver-plugin.cmake

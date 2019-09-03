@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-util
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-util
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-util/doxygen-html
+
+Name: hpp-util
+Description: Debugging tools for the HPP project.
+URL: http://github.com/humanoid-path-planner/hpp-util
+Version: 4.5.0
+Requires: tinyxml >= 2.6
+Conflicts: 
+Libs: -L${libdir}  -lhpp-util -L/usr/lib/x86_64-linux-gnu -lboost_filesystem -lboost_system
+Libs.private: 
+Cflags:  -I${includedir} -I/usr/include
+
+

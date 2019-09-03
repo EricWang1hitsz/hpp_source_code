@@ -1,0 +1,23 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-core
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-core
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-core/doxygen-html
+
+Name: hpp-core
+Description: Implement basic classes for canonical path planning for kinematic chains.
+URL: https://github.com/humanoid-path-planner/hpp-core
+Version: 4.6.0
+Requires: hpp-pinocchio >= 4, hpp-util >= 3, hpp-statistics >= 1.1, hpp-constraints >= 4
+Conflicts: 
+Libs: -L${libdir}  -lhpp-core
+Libs.private: 
+Cflags:  -I${includedir} -I/usr/include
+
+
+cmake_plugin=/local/devel/hpp/install/share/hpp-core/cmake/hpp-core-plugin.cmake

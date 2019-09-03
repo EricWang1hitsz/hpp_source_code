@@ -1,0 +1,21 @@
+\form#0:$N_f$
+\form#1:$N_t$
+\form#2:$ N_f \xrightarrow{e_0} n_0 \xrightarrow{e_1} n_1 \xrightarrow{e_2} N_t$
+\form#3:$(n_0, n_1)$
+\form#4:$(e_0, e_1, e_2)$
+\form#5:$ (q_1,q_2) $
+\form#6:$ (s_1, s_2) $
+\form#7:$ (e_0, ... e_n) $
+\form#8:$ n-1 $
+\form#9:$ p_i $
+\form#10:$ p^*_i $
+\form#11:$ e_j $
+\form#12:$ (p^*_i, p^*_{i+1}) $
+\form#13:$ (p_i) $
+\form#14:$ p_0 = q_1 $
+\form#15:$ p_{n+1} = q_2 $
+\form#16:$ (e_{i-1}, e_i) $
+\form#17:$ (p_i, p_{i+1}) $
+\form#18:$ e_i $
+\form#19:$ f (q_0, ... , q_n) = f_{inner} (q_k) $
+\form#20:$ f (q_0, ... , q_n) = f_{inner} (q_{left}) - f_{inner} (q_{right}) $

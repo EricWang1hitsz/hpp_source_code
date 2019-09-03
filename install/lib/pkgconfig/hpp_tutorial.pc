@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp_tutorial
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp_tutorial
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp_tutorial/doxygen-html
+
+Name: hpp_tutorial
+Description: Tutorial for humanoid path planner platform.
+URL: https://github.com/humanoid-path-planner/hpp_tutorial
+Version: 4.6.1
+Requires: hpp-manipulation-corba >= 4
+Conflicts: 
+Libs: -L${libdir} 
+Libs.private: 
+Cflags:  -I${includedir}
+
+

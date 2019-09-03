@@ -1,0 +1,27 @@
+var a00052 =
+[
+    [ "Map", "a00052.html#a82d8692fa923870a6848f51822dacf91", null ],
+    [ "Pair", "a00052.html#acbcfe37685316dda8a5d2efb3b41576a", null ],
+    [ "PyMap", "a00052.html#ae5422dd95686704a0a19663e6ef256a5", null ],
+    [ "PyPair", "a00052.html#a6486f876f011b790fe1cfb86ee839181", null ],
+    [ "~PluginManager", "a00052.html#a2eba5bc1550147fe02b49c44ec29a2e2", null ],
+    [ "addPluginDir", "a00052.html#adc208bc884931ad4ecbf85a8be6077c0", null ],
+    [ "clearPlugins", "a00052.html#acabee4757a146b9cc33f9937bc4eb4fa", null ],
+    [ "clearPyPlugins", "a00052.html#a72cf7bfda6e0b08db8160fa34a5e2575", null ],
+    [ "declareAllPlugins", "a00052.html#a77634ba3ce874783464e71c97bf43244", null ],
+    [ "declareAllPyPlugins", "a00052.html#a83d719ab045ae763d19ed70cff4cca60", null ],
+    [ "declarePlugin", "a00052.html#a650601b5c922f08d19f20cd456bfada3", null ],
+    [ "declarePyPlugin", "a00052.html#a8e1929a4c6c00c0799424dcd2482c44a", null ],
+    [ "get", "a00052.html#af0be2c81e249594eba2e0dd1fa050724", null ],
+    [ "getFirstOf", "a00052.html#ab162cc97a2b94b499826053a0a6cf9aa", null ],
+    [ "icon", "a00052.html#af62f0e44c76a1d23e192a760b4c8980e", null ],
+    [ "initPlugin", "a00052.html#a0178194747f870579375d18ce129123f", null ],
+    [ "isPyPluginLoaded", "a00052.html#ae02f5b8952a912ec38286e0c2700f994", null ],
+    [ "loadPlugin", "a00052.html#a44f4bd81e8c29981741d2b9eed1abbc5", null ],
+    [ "loadPyPlugin", "a00052.html#a47fe2f4f94839875ae0fd831fe1ecc32", null ],
+    [ "plugins", "a00052.html#a9a3ce4c69e1e39ae4586763d83d57494", null ],
+    [ "pyplugins", "a00052.html#a153e2e45a53c98793d63b49937d65c6f", null ],
+    [ "status", "a00052.html#ad6e6aed16d5a4703fb9fcf0e9b96e6cc", null ],
+    [ "unloadPlugin", "a00052.html#a3f8c7634d57ec550fdce1f831fb9a226", null ],
+    [ "unloadPyPlugin", "a00052.html#a1d89be720b0e14ce5a58edc366bf4e01", null ]
+];

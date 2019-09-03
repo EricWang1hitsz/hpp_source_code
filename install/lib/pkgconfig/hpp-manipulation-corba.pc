@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-manipulation-corba
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-manipulation-corba
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-manipulation-corba/doxygen-html
+
+Name: hpp-manipulation-corba
+Description: Corba server for manipulation planning
+URL: https://github.com/humanoid-path-planner/hpp-manipulation-corba
+Version: 4.6.1
+Requires: hpp-corbaserver >= 3, hpp-template-corba >= 1.1, hpp-manipulation >= 4, hpp-manipulation-urdf >= 4, omniORB4 >= 4.1.4
+Conflicts: 
+Libs: -L${libdir}  -lhpp-manipulation-corba
+Libs.private: 
+Cflags:  -I${includedir}
+
+

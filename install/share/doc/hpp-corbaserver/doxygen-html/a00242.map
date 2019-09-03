@@ -1,0 +1,6 @@
+<map id="hpp::corbaServer::core_idl::PathVectorServant&lt; _Base, _Storage &gt;" name="hpp::corbaServer::core_idl::PathVectorServant&lt; _Base, _Storage &gt;">
+<area shape="rect" id="node2" href="$a00034.html" title="hpp::corbaServer::core\l_idl::PathServant\&lt; _Base,\l _Storage \&gt;" alt="" coords="92,273,267,329"/>
+<area shape="rect" id="node3" href="$a00051.html" title="hpp::corbaServer::Servant\lBase\&lt; core::Path, _Storage \&gt;" alt="" coords="5,184,201,225"/>
+<area shape="rect" id="node4" href="$a00007.html" title="hpp::corbaServer::Abstract\lServantBase\&lt; core::Path \&gt;" alt="" coords="13,95,194,136"/>
+<area shape="rect" id="node5" href="$a00008.html" title="Abstract class used to avoid duplication of the servants. " alt="" coords="14,5,193,47"/>
+</map>

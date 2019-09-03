@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.11">
+  <compound refid="a00069" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="a00068" kind="file"><name>main.dox</name>
+  </compound>
+  <compound refid="a00063" kind="page"><name>hpp_doc_algorithms</name>
+  </compound>
+  <compound refid="a00064" kind="page"><name>hpp_doc_corba_interface</name>
+  </compound>
+  <compound refid="a00065" kind="page"><name>hpp_doc_graphical_interface</name>
+  </compound>
+  <compound refid="a00066" kind="page"><name>hpp_doc_dependency_graph</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

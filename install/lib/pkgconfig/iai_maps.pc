@@ -1,0 +1,8 @@
+prefix=/local/devel/hpp/install
+
+Name: iai_maps
+Description: Description of iai_maps
+Version: 0.0.1
+Cflags: 
+Libs: -L/local/devel/hpp/install/lib 
+Requires: 

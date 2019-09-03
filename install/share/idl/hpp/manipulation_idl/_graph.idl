@@ -1,0 +1,100 @@
+// Copyright (c) 2019, LAAS-CNRS
+// Authors: Joseph Mirabel (joseph.mirabel@laas.fr)
+//
+// This file is part of hpp-manipulation-corba.
+// hpp-manipulation-corba is free software: you can redistribute it
+// and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation, either version
+// 3 of the License, or (at your option) any later version.
+//
+// hpp-manipulation-corba is distributed in the hope that it will be
+// useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Lesser Public License for more details.  You should have
+// received a copy of the GNU Lesser General Public License along with
+// hpp-manipulation-corba. If not, see <http://www.gnu.org/licenses/>.
+
+
+#ifndef HPP_MANIPULATION_GRAPH_IDL
+#define HPP_MANIPULATION_GRAPH_IDL
+
+#include "hpp/corbaserver/manipulation/gcommon.idl"
+#include <hpp/common.idl>
+#include <hpp/constraints_idl/constraints.idl>
+#include <hpp/core_idl/steering_methods.idl>
+#include <hpp/core_idl/path_validations.idl>
+
+module hpp {
+  module constraints_idl {
+    interface Implicit;
+    typedef sequence <Implicit> Implicits;
+    interface LockedJoint;
+    typedef sequence <LockedJoint> LockedJoints;
+  };
+  module core_idl {
+    interface SteeringMethod;
+    interface PathValidation;
+  };
+  module manipulation_idl {
+    module graph_idl {
+      typedef unsigned long long size_t;
+      interface State;
+      typedef sequence<State> States;
+      interface Edge;
+      typedef sequence<Edge> Edges;
+
+      interface GraphComponent {
+        string name () raises (Error);
+        size_t id () raises (Error);
+
+        constraints_idl::Implicits numericalConstraints () raises (Error);
+        constraints_idl::LockedJoints lockedJoints () raises (Error);
+      }; // interface GraphComponent
+
+      interface StateSelector : GraphComponent
+      {
+        States getStates () raises (Error);
+      }; // interface StateSelector
+
+      interface Graph : GraphComponent
+      {
+        StateSelector getStateSelector () raises (Error);
+        //-> stateSelector
+        GraphComponent get (in size_t id) raises (Error);
+        size_t nbComponents () raises (Error);
+        void initialize () raises (Error);
+      }; // interface Graph
+
+      interface State : GraphComponent
+      {
+        Edges neighborEdges () raises (Error);
+        Edges hiddenNeighbors () raises (Error);
+      }; // interface State
+
+      interface Edge : GraphComponent
+      {
+        State from () raises (Error);
+        State to () raises (Error);
+        State getState () raises (Error);
+        //-> state
+        void setState (in State st) raises (Error);
+        //-> state
+
+        core_idl::SteeringMethod getSteeringMethod () raises (Error);
+        //-> steeringMethod
+        core_idl::PathValidation getPathValidation () raises (Error);
+        //-> pathValidation
+      }; // interface Edge
+    }; // module graph
+  }; // module manipulation
+}; // module hpp
+
+//* #include <hpp/constraints_idl/constraints.hh>
+//* #include <hpp/core_idl/steering_methods.hh>
+//* #include <hpp/core_idl/path_validations.hh>
+//* #include <hpp/manipulation/graph/edge.hh>
+//* #include <hpp/manipulation/graph/graph.hh>
+//* #include <hpp/manipulation/graph/state.hh>
+//* #include <hpp/manipulation/graph/state-selector.hh>
+
+#endif // HPP_MANIPULATION_STEERING_METHODS_IDL

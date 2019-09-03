@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$a00061.html" title="Abstract class representing a Device. " alt="" coords="5,31,168,72"/>
+<area shape="rect" id="node2" href="$a00067.html" title="Robot with geometric and dynamic pinocchio. " alt="" coords="231,13,386,39"/>
+<area shape="rect" id="node4" href="$a00069.html" title="A thread&#45;safe access to a Device. " alt="" coords="216,63,401,90"/>
+<area shape="rect" id="node3" href="$a00073.html" title="Humanoid robot. " alt="" coords="449,5,623,47"/>
+</map>

@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-wholebody-step
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-wholebody-step
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-wholebody-step/doxygen-html
+
+Name: hpp-wholebody-step
+Description: Path planning for humanoid robot by sliding on the groud.
+URL: https://github.com/humanoid-path-planner/hpp-wholebody-step
+Version: 4.6.0-3-g972f
+Requires: hpp-core >= 4, hpp-walkgen, romeo_description
+Conflicts: 
+Libs: -L${libdir}  -lhpp-wholebody-step
+Libs.private: 
+Cflags:  -I${includedir} -I/usr/include
+
+

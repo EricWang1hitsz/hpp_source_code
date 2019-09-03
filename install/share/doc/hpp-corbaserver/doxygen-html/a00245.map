@@ -1,0 +1,5 @@
+<map id="hpp::corbaServer::core_idl::ProblemServant&lt; _Base, _Storage &gt;" name="hpp::corbaServer::core_idl::ProblemServant&lt; _Base, _Storage &gt;">
+<area shape="rect" id="node2" href="$a00051.html" title="hpp::corbaServer::Servant\lBase\&lt; core::Problem, _Storage \&gt;" alt="" coords="5,184,223,225"/>
+<area shape="rect" id="node3" href="$a00007.html" title="hpp::corbaServer::Abstract\lServantBase\&lt; core::Problem \&gt;" alt="" coords="13,95,215,136"/>
+<area shape="rect" id="node4" href="$a00008.html" title="Abstract class used to avoid duplication of the servants. " alt="" coords="25,5,203,47"/>
+</map>

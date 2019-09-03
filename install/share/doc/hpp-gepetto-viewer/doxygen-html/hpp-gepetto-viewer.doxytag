@@ -1,0 +1,1927 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tagfile>
+  <compound kind="file">
+    <name>__init__.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/</path>
+    <filename>a00014</filename>
+    <namespace>gepetto</namespace>
+  </compound>
+  <compound kind="file">
+    <name>blender/__init__.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/blender/</path>
+    <filename>a00015</filename>
+    <namespace>gepetto::blender</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gui/__init__.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/gui/</path>
+    <filename>a00016</filename>
+    <namespace>gepetto::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>manipulation/__init__.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/manipulation/</path>
+    <filename>a00017</filename>
+    <namespace>gepetto::manipulation</namespace>
+  </compound>
+  <compound kind="file">
+    <name>exportmotion.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/blender/</path>
+    <filename>a00018</filename>
+    <namespace>gepetto::blender::exportmotion</namespace>
+    <member kind="function">
+      <type>def</type>
+      <name>exportState</name>
+      <anchorfile>a00028.html</anchorfile>
+      <anchor>ad16472a2a0557c9d181ea779c54d0b31</anchor>
+      <arglist>(viewer, robot, configuration, outData)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>writeDataToFile</name>
+      <anchorfile>a00028.html</anchorfile>
+      <anchor>a47ecaf7be05f4e95cb0b8689df39ee3e</anchor>
+      <arglist>(robot, outData, filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>exportStates</name>
+      <anchorfile>a00028.html</anchorfile>
+      <anchor>acaa5aaec912da3646c444257e680deb0</anchor>
+      <arglist>(viewer, robot, configurations, filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>exportPath</name>
+      <anchorfile>a00028.html</anchorfile>
+      <anchor>ad02ea771d5babeb4feca97a5c35055c0</anchor>
+      <arglist>(viewer, robot, problem, pathId, stepsize, filename)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>main.hh</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/doc/</path>
+    <filename>a00019</filename>
+  </compound>
+  <compound kind="file">
+    <name>path_graph.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/gui/</path>
+    <filename>a00020</filename>
+    <class kind="class">gepetto::gui::path_graph::VelGetter</class>
+    <class kind="class">gepetto::gui::path_graph::ComGetter</class>
+    <class kind="class">gepetto::gui::path_graph::Velocities</class>
+    <class kind="class">gepetto::gui::path_graph::JointAction</class>
+    <class kind="class">gepetto::gui::path_graph::DataQCP</class>
+    <class kind="class">gepetto::gui::path_graph::Plugin</class>
+    <namespace>gepetto::gui::path_graph</namespace>
+    <member kind="variable">
+      <type>tuple</type>
+      <name>colors</name>
+      <anchorfile>a00030.html</anchorfile>
+      <anchor>a4b242d9ef7ede0df7a9f1ef28c4b782a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>tuple</type>
+      <name>lineStyles</name>
+      <anchorfile>a00030.html</anchorfile>
+      <anchor>af7788cd27d4eef7cc05c5e1cc3633f2d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>list</type>
+      <name>pens</name>
+      <anchorfile>a00030.html</anchorfile>
+      <anchor>a13abcd780ab9c3be808dad010dd4595d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>qpen</name>
+      <anchorfile>a00030.html</anchorfile>
+      <anchor>a8aa1f0ae6594530cd02874b9d778fbd8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>path_player.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/</path>
+    <filename>a00021</filename>
+    <class kind="class">gepetto::path_player::PathPlayer</class>
+    <namespace>gepetto::path_player</namespace>
+  </compound>
+  <compound kind="file">
+    <name>manipulation/viewer.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/manipulation/</path>
+    <filename>a00022</filename>
+    <class kind="class">gepetto::manipulation::viewer::Viewer</class>
+    <namespace>gepetto::manipulation::viewer</namespace>
+  </compound>
+  <compound kind="file">
+    <name>viewer.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/</path>
+    <filename>a00023</filename>
+    <class kind="class">gepetto::viewer::Viewer</class>
+    <class kind="class">gepetto::viewer::Color</class>
+    <namespace>gepetto::viewer</namespace>
+    <member kind="function">
+      <type>def</type>
+      <name>hppToViewerTransform</name>
+      <anchorfile>a00035.html</anchorfile>
+      <anchor>a415ad8adaa9ed87bc8dd63f3aa04bfb2</anchor>
+      <arglist>(input)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>manipulation/viewer_factory.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/manipulation/</path>
+    <filename>a00024</filename>
+    <class kind="class">gepetto::manipulation::viewer_factory::ViewerFactory</class>
+    <namespace>gepetto::manipulation::viewer_factory</namespace>
+  </compound>
+  <compound kind="file">
+    <name>viewer_factory.py</name>
+    <path>/local/devel/hpp/src/hpp-gepetto-viewer/src/hpp/gepetto/</path>
+    <filename>a00025</filename>
+    <class kind="class">gepetto::viewer_factory::ViewerFactory</class>
+    <namespace>gepetto::viewer_factory</namespace>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::viewer::Color</name>
+    <filename>a00002.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a95bd00f62564ba5cf0fd8972c7ef30be</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>__getitem__</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a2834d8ff5b11fde07bf854b883c30c00</anchor>
+      <arglist>(self, i)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>colors</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>ad0b1264851652dbe8a042fbaf86d24dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>white</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a6ce46d8461450491c3800a601c96d124</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>lightWhite</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a43696d661bf31c6352a372b7f885ab08</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>green</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a170ebec77a623a7bb7a49cfafe675976</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>lightGreen</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>ab675dc65afd2792adb8209ac6df2c159</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>yellow</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a555b122476d3ab44ed2ddbd2c8bbfc88</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>lightYellow</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a0e92f7443ca4e6c19795727595f910c8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>blue</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>ad380436b146c62f678ca3ecfb217fb9b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>lightBlue</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a505c23f2c0fd2d01856ad489074356bf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>grey</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a330d45e9320f835cb0edce7858cdd7d0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>lightGrey</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a0385c7c8b4b194d2d92d9dbb79480927</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>red</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a6a78b09c62e5724a9331d33cb6c6d09f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>lightRed</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a352cd024fe5d28c35784b37d16250b23</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>black</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a10e6203afad49569b2c4f614f37653f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>lightBlack</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>aae003a82f1cab8b055aa9b2b5e68acba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>brown</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a5106c05e3a78a3892b56e5189a5f82c5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>list</type>
+      <name>lightBrown</name>
+      <anchorfile>a00002.html</anchorfile>
+      <anchor>a254c2a68019fd7795f9b83a91cfbf0e4</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::gui::path_graph::ComGetter</name>
+    <filename>a00003.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>acb1d40c69a4b3549569a1b79c75246d1</anchor>
+      <arglist>(self, plugin, com)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>getV</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>a8a6e68603b53bff5119b6e6ddce41693</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>createNodes</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>ab7b664dad6d5d97763942410f76c747e</anchor>
+      <arglist>(self, color)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>removeNodes</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>a9b0c5bfd1a1de658b60325c5ecdf8d9a</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>apply</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>ab6daef79739f4763b586d772cbce340d</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>plugin</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>add7e2d7397c5e30510abc696b8f3fd5b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>name</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>a9c8a622d30ff33706c9ec4ffa8a91a27</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>linear</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>acca21f519b58b610c1fb5582d23cbe6f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>group</name>
+      <anchorfile>a00003.html</anchorfile>
+      <anchor>ae2378ebd4117bf2c75fb38cdf977c6ed</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::gui::path_graph::DataQCP</name>
+    <filename>a00004.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a11707539f60f3d8d2e007f40ae7890d6</anchor>
+      <arglist>(self, plugin)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>selectData</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>ab044276ef569dbb9f5249951a27f7a1e</anchor>
+      <arglist>(self, pid, dl, x, ys)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>acquireData</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a90fc9e0eac50ab93ee4ebf51ee35ffbe</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>plugin</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>abca7ed7a1b9175b1b2874500cac2681a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>qcp</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a89702a1b43cae888a52b7cbf2bf9b900</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>timer</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a1d17d36c875b9b1a36ff698f8c898385</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>pathLength</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a6404d9441afccc9ba4553506f964fd18</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>dl</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a800ca2e55a8990d0633d228abb345f37</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>pathId</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a86c154bc9f279f0cb90f34053b652a6d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>x</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>af0a981bba114328959eeef3a27712351</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>ys</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a82072f52747916b3e351acb18eb44be2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>dataAreOld</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>aa054c1bb54ad52a2c5f6eae9774be510</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>l</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a0c2c35ce96ac72f2ecf84dd2bb304542</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>datas</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>a937aa89e56e04ad8dde30ed115faf043</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>npdatas</name>
+      <anchorfile>a00004.html</anchorfile>
+      <anchor>ad3e76154b0b8873f67bcd54215aff005</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::gui::path_graph::JointAction</name>
+    <filename>a00005.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00005.html</anchorfile>
+      <anchor>a18016dbed4af0cc9d121e1dbb3f433ae</anchor>
+      <arglist>(self, action, joint, velocities, parent)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>trigger</name>
+      <anchorfile>a00005.html</anchorfile>
+      <anchor>a702766d0f92eb4ab79a2733e1b874728</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>joint</name>
+      <anchorfile>a00005.html</anchorfile>
+      <anchor>aab107f5fc29799bdc94f6871cbc3ee6e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>velocities</name>
+      <anchorfile>a00005.html</anchorfile>
+      <anchor>a1771183a6c6d003b3e39cb4e8b7e1cd4</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::path_player::PathPlayer</name>
+    <filename>a00006.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a4fd055d4f6550a9baccff9dc3de13f19</anchor>
+      <arglist>(self, publisher, client=None, dt=0.01, speed=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>setDt</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a94bfe82ad018742fcd54e7911fac370a</anchor>
+      <arglist>(self, dt)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>setSpeed</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a9f0466a4bc5035352e0310b3cb609a90</anchor>
+      <arglist>(self, speed)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>__call__</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a01712aa07e5971a1ae865f0f29c82d2d</anchor>
+      <arglist>(self, pathId)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>displayPath</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>ad3c14e4d75b8a6ba19efa206231cc3d2</anchor>
+      <arglist>(self, pathId, color=[0.85, jointName=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>displayVelocityPath</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a69450ec84499aeb8168b9dc3dea790c3</anchor>
+      <arglist>(self, pathId, jointName=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>generatePlot</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a894fee0e8c2e0008ba5873e5f2aec1db</anchor>
+      <arglist>(self, pathId, play=False, jointNames=None, cursor=False, filename=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>toFile</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a6f35538932c1f6b98bda90a4b4512a36</anchor>
+      <arglist>(self, pathId, fname)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>toFileAppend</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>af167b1a1ef60d917e04bad4377661976</anchor>
+      <arglist>(self, pathId, fname)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>getTrajFromFile</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a382a0917445a5c153f7b89ec15e08fbb</anchor>
+      <arglist>(self, fname)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>fromFile</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>ad0e44ea1802ab456db6879074e4275d9</anchor>
+      <arglist>(self, fname)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>client</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>aa09c4b56e469ddec2b077003b2f894af</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>publisher</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a1837394ccf76ac66d7b0eb89ec587616</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>dt</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a5498dc1981bd8e0e56f7f8a7387ab181</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>speed</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a104d8db00076fa57d9a29bb7df9bc7b3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>start</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a45b8f9c37c29a45dfb52e0d20b9bc2b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>end</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>a4af02d6c410887167a548734ca26a233</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>tau</name>
+      <anchorfile>a00006.html</anchorfile>
+      <anchor>acad580a4f45185e7c1ddbbecb37afe42</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::gui::path_graph::Plugin</name>
+    <filename>a00007.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>ad03de09a868e43b227c48c20de90b353</anchor>
+      <arglist>(self, mainWindow, flags=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>refreshPlot</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a4f1926bcd57435e299874a092a445788</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>refreshJointList</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a03073167cd8f355da6792b592dd814de</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>refreshInterface</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a3b177f3ac5ffc913d90146fbc013c075</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>makeLeftPane</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a368da3991eb9c619bd68ca4db42ca284</anchor>
+      <arglist>(self, layout)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>makeRightPane</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>abbaeff7656b44480b832fa9b6a5a4c74</anchor>
+      <arglist>(self, layout)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>resetConnection</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a84bb2f5a0c1ceb39c1c57252930152e2</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>getJointActions</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>ab9697080b68428b979415d531061cad3</anchor>
+      <arglist>(self, name)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>main</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a2f8fa23ab8330c5f08f8cd0b9ec78dea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>hppPlugin</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a389577d05d276ca95b09fdf71479df3d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>pathPlayer</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>aa0d7693d91740f75d4933aeb9f286307</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>jointgroupcreator</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a8af503574ea981e0a52dafb30afb0eff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>comgroupcreator</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a3eab2964620b7b7a8cf392c352e2c574</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>velocities</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a5b288d263ff6ebc1d24f2be3b113ea1a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>jointActions</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a2901bb4841c158513f1de75b9dd8b299</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>topWidget</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>aac1c2950111af7385c986187f5cf95f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>leftPane</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>ae2c8e09fd914317f557234ed4a32cf4f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>rightPane</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a113e29b69f7c3f88c56d46952fec748a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>data</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>ac978ee113de6a0370c621026dd5bad3e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>yselectcb</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>ad2d05ef98f6b5c497683378601d042d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>scrollArea</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a20bfe1be8cf5365ffa52174ed90c0beb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>qcpWidget</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a00c21ceacc0a14718529569ed6aa1109</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>xselect</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a5d4ed3513ab88ad40bc14f3bec7d9f11</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>client</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>af96be3793c57f2f498b4d0e712e221de</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>gui</name>
+      <anchorfile>a00007.html</anchorfile>
+      <anchor>a88d696a508e3500820a1e60bbdaec33a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::gui::path_graph::VelGetter</name>
+    <filename>a00008.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>ade7f06f09aeedaa9b1209a68eaf4311d</anchor>
+      <arglist>(self, plugin, name)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>getV</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>ae86c18cce30f77b54e69663d88874cfd</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>createNodes</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>aa543f70dc9105f74e1c1221064b7059f</anchor>
+      <arglist>(self, color)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>removeNodes</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>a1df04b40300ac5e70a1e4e1803284028</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>apply</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>ad014711ee19e1dede28e187aa3ad042a</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>plugin</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>a355f099d144087634ed5449a71841bbe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>name</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>ae21d1972f44148e1cdb993948f8ef3f2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>vector6</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>af3d4e7ccc8ad31596d88187aba740e7f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>group</name>
+      <anchorfile>a00008.html</anchorfile>
+      <anchor>af91c0079a68ae9b3651aef5cfa78d082</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::gui::path_graph::Velocities</name>
+    <filename>a00009.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>adef4e0c6a90634e6f6bb6456dd577dac</anchor>
+      <arglist>(self, plugin)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>connect</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a67d79e231d03354b90f862d4dd031534</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>disconnect</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>acacac404ac537aecd4c2a4ec0e22d45d</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>add</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a8c05b52d23e6822002a0938e9c155e52</anchor>
+      <arglist>(self, getter)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>remove</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a02a95b346aea1b59b873d0eaa93b456a</anchor>
+      <arglist>(self, node)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>toggleJoint</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a9b8b69eb7262e7cd897de88345cb3957</anchor>
+      <arglist>(self, joint)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>toggleCom</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a5088c765e40e2ddfbed23ffc545f614c</anchor>
+      <arglist>(self, com)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>applyAll</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a5e0c6b008bf0f17b2c05b75ff769de7e</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>plugin</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a77b7328e7fc87750d335bae31e9471a0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>connected</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>acf81b8aaa116dfeec031d0fdb5d8a5c7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>getters</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a3ba4abb4b2754067eaa62781f3538be2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type></type>
+      <name>color</name>
+      <anchorfile>a00009.html</anchorfile>
+      <anchor>a071ebdc93de40741a0e54af4f6696494</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::viewer::Viewer</name>
+    <filename>a00010.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a6bf3444dd3dfef9158411b2e4ed255b0</anchor>
+      <arglist>(self, problemSolver, viewerClient=None, collisionURDF=False, displayName=None, displayArrows=False, displayCoM=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>createWindowAndScene</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>aa2ddb52d6c5b7d89e5afba5d376e2972</anchor>
+      <arglist>(self, viewerClient, name)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>addCallback</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a21167b21785c640430a7a892ca94013f</anchor>
+      <arglist>(self, cb)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>buildRobotBodies</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>ade95111bd9876de5b3a903f08f87f380</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>addLandmark</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>ac0130052ceb77a68db1bb674832430e1</anchor>
+      <arglist>(self, linkname, size)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>displayPathMap</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a254fb7491bb8a4ca2a338b9115c642bb</anchor>
+      <arglist>(self, nameRoadmap, pathID, radiusSphere=0.03, sizeAxis=0.09, colorNode=[1, colorEdge=[1, joint=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>displayRoadmap</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>aaa252e38733a1ab016c0a68e4c6569cc</anchor>
+      <arglist>(self, nameRoadmap, radiusSphere=0.01, sizeAxis=0.03, colorNode=[1.0, colorEdge=[0.85, joint=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>solveAndDisplay</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>adacbc54183b99a5d82a32d1ca523e2ef</anchor>
+      <arglist>(self, nameRoadmap, numberIt, radiusSphere=0.01, sizeAxis=0.03, colorNode=[1.0, colorEdge=[0.85, joint=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadObstacleModel</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>af8c33540e5a15a94d2a3054382b67a5b</anchor>
+      <arglist>(self, package, filename, prefix, meshPackageName=None, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>moveObstacle</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a4fd9571c38e6c346b6fc00c45c4bc25e</anchor>
+      <arglist>(self, name, position, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>computeObjectPosition</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>ad94ce5e1e447f83e6f2099caa89a64bb</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>publishRobots</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>ad12730ebddd5eb52d89202daff06ce91</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>__call__</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a6b3cac9dfd52868c82da323295c3491a</anchor>
+      <arglist>(self, args)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>startCapture</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>af75f94a9bb2c36774c8dd0e057cd2105</anchor>
+      <arglist>(self, filename, extension)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>stopCapture</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a2553d4cf67e6f9d81a527a4477f2b909</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>captureFrame</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a827c90afd7cfc3825291944c18a70bf6</anchor>
+      <arglist>(self, filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>toggleVisual</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a372d2d64c33e9000f55da37647dda28e</anchor>
+      <arglist>(self, visual)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>drawRobotAABB</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a7db02b30306391e9d55ff33d812ed6a9</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>problemSolver</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a9635d968da97eded10a809d9f3582de0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>robot</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>aed18cb12fedd175c2d38af9148592ed6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>collisionURDF</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>aed096e12734f9bb615e0c6b26ed59fb3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>color</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a7d5fc90149ad57077b478f5afb49273e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>client</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a50b4356f21f0c513a835039a4e1dc9e3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>callbacks</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a42c56a95299e812f217bb814a42873d6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>displayName</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>abc313f58b74745e2fd98ff9aa2969ffa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>displayArrows</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>aae546cb0d48decbfac93098aa255fa73</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>colorVelocity</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>ac043db55344a2ceba0ad4260b68d710f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>colorAcceleration</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>adf89ea0275674116781d1757d0e801e3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>arrowRadius</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a33f83a9e179b654da04c73792e7abe3d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>arrowMinSize</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a09b09a1deba6250a4f1ecfa0abf2f0f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>arrowMaxSize</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a431cd60323f4c7d4d3969f68f5c4283e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>amax</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a65b97e2a4f60083dfb9f84eed8aacfd0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>vmax</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a11e31872e892f36fec4e036eb4b9bfda</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>displayCoM</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a91ae76c13d03a1de1ba0713fddf84ffc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>windowName</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>aac21b4499b9dfce510e0d0e123debbff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>windowId</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>afc70e0885654e89cb402e20417b06cdb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>sceneName</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a0964a8accccf959a86148231a3d62c00</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>robotBodies</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a5d2e17c3e993972b8b9de98f62901071</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>robotConfig</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a62f69a42b661cb7d07691ae41d726f06</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>string</type>
+      <name>sceneName</name>
+      <anchorfile>a00010.html</anchorfile>
+      <anchor>a2a684d7697c1aaf0bb99f060d0d66073</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::manipulation::viewer::Viewer</name>
+    <filename>a00011.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>a8e79413dc8c32a97b006d68f06f71da8</anchor>
+      <arglist>(self, problemSolver, viewerClient=None, collisionURDF=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadRobotModel</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>a9dc5f5908759c093bcf28429864d9625</anchor>
+      <arglist>(self, RobotType, robotName, guiOnly=False, collisionURDF=False, frame=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadHumanoidModel</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>a88722dd094cbc22b12afc32a4227dc01</anchor>
+      <arglist>(self, RobotType, robotName, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadEnvironmentModel</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>af661161d90a16d2cb2d170299ebfce63</anchor>
+      <arglist>(self, EnvType, envName, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadObjectModel</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>a4274a321ba2ed8d732a050d121457853</anchor>
+      <arglist>(self, RobotType, robotName, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>buildCompositeRobot</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>af0840e9e029eaa9a7eeefa9a8c019e72</anchor>
+      <arglist>(self, robotNames)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadUrdfInGUI</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>a37b063c3ba8e5f37fb85915e9a851192</anchor>
+      <arglist>(self, RobotType, robotName)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadUrdfObjectsInGUI</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>a6450a288ac77e12e774337c80232e450</anchor>
+      <arglist>(self, RobotType, robotName)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>compositeRobotName</name>
+      <anchorfile>a00011.html</anchorfile>
+      <anchor>a7cc7045f8a68ba80b452bd830fe7c90c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::manipulation::viewer_factory::ViewerFactory</name>
+    <filename>a00012.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>ab20af31091317de3bc229e58255cdd83</anchor>
+      <arglist>(self, problemSolver)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>buildRobotBodies</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>aafb0e1c50217836729d64d34989804a2</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadRobotModel</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>a2127f5b4521fb1f8c06e52ba9ba767ae</anchor>
+      <arglist>(self, RobotType, robotName, guiOnly=False, frame=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadHumanoidModel</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>a18fc7dba7cfba18abeb6afb292cc0021</anchor>
+      <arglist>(self, RobotType, robotName, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadEnvironmentModel</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>a3a498570cc08316aa6d40e3ebef8df32</anchor>
+      <arglist>(self, EnvType, envName, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadObjectModel</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>ada2b8e287706968f72f22d7d24a5fb8f</anchor>
+      <arglist>(self, RobotType, robotName, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>buildCompositeRobot</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>ab3f8e0ab62f71597f98af41839c816c3</anchor>
+      <arglist>(self, robotNames)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadUrdfInGUI</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>aa640fae4fd7036ed99483155313da434</anchor>
+      <arglist>(self, RobotType, robotName)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadUrdfObjectsInGUI</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>ad1d8a80c583dccc8f3f3718cc2916845</anchor>
+      <arglist>(self, RobotType, robotName)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>createViewer</name>
+      <anchorfile>a00012.html</anchorfile>
+      <anchor>a50116a5b1ba8a7514de427a9656cfc86</anchor>
+      <arglist>(self, ViewerClass=Viewer, kwargs)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>gepetto::viewer_factory::ViewerFactory</name>
+    <filename>a00013.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>__init__</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>a6d0dfe9390c84f539cd75a149bd022bd</anchor>
+      <arglist>(self, problemSolver)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>buildRobotBodies</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>a59f1713a05ca284dbb73dbddc0a814b3</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>addLandmark</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>ae28bf93245c3e1d907f4d391c487e2a5</anchor>
+      <arglist>(self, linkname, size)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>loadObstacleModel</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>a152c378a02edc3d984887627ad458f90</anchor>
+      <arglist>(self, package, filename, prefix, meshPackageName=None, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>moveObstacle</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>aedd7464909d70579a248a84db7d44e07</anchor>
+      <arglist>(self, name, position, guiOnly=False)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>computeObjectPosition</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>a88a35b36ae5cc99bc5a3e20b424c6c64</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>publishRobots</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>a3fc36c65d5b118805314cd6a7c34d215</anchor>
+      <arglist>(self)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>displayRoadmap</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>ab8d12064beca35a808a1ceb405a1efb6</anchor>
+      <arglist>(self, nameRoadmap, radiusSphere=0.01, sizeAxis=0.03, colorNode=[1.0, colorEdge=[0.85, joint=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>__call__</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>a5cd652d46f27edbba0ebae2f8790b9db</anchor>
+      <arglist>(self, args)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>createViewer</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>a239aa5a30cfb621efa3d44053860588c</anchor>
+      <arglist>(self, ViewerClass=Viewer, viewerClient=None, host=None, kwargs)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>guiRequest</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>aa7751fc980c8c7a86ac8654d7884b4dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>problemSolver</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>ae9887b46ae323637884c78f2e2c7c506</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>robot</name>
+      <anchorfile>a00013.html</anchorfile>
+      <anchor>afb9b6563125a176341e82d7f151b0ad0</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto</name>
+    <filename>a00026.html</filename>
+    <namespace>gepetto::blender</namespace>
+    <namespace>gepetto::gui</namespace>
+    <namespace>gepetto::manipulation</namespace>
+    <namespace>gepetto::path_player</namespace>
+    <namespace>gepetto::viewer</namespace>
+    <namespace>gepetto::viewer_factory</namespace>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::blender</name>
+    <filename>a00027.html</filename>
+    <namespace>gepetto::blender::exportmotion</namespace>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::blender::exportmotion</name>
+    <filename>a00028.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>exportState</name>
+      <anchorfile>a00028.html</anchorfile>
+      <anchor>ad16472a2a0557c9d181ea779c54d0b31</anchor>
+      <arglist>(viewer, robot, configuration, outData)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>writeDataToFile</name>
+      <anchorfile>a00028.html</anchorfile>
+      <anchor>a47ecaf7be05f4e95cb0b8689df39ee3e</anchor>
+      <arglist>(robot, outData, filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>exportStates</name>
+      <anchorfile>a00028.html</anchorfile>
+      <anchor>acaa5aaec912da3646c444257e680deb0</anchor>
+      <arglist>(viewer, robot, configurations, filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>exportPath</name>
+      <anchorfile>a00028.html</anchorfile>
+      <anchor>ad02ea771d5babeb4feca97a5c35055c0</anchor>
+      <arglist>(viewer, robot, problem, pathId, stepsize, filename)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::gui</name>
+    <filename>a00029.html</filename>
+    <namespace>gepetto::gui::path_graph</namespace>
+    <member kind="typedef">
+      <type>std::vector&lt; BodyTreeItem * &gt;</type>
+      <name>BodyTreeItems_t</name>
+      <anchorfile>a00130.html</anchorfile>
+      <anchor>abae76dce338a5eeafdd5cba6d6e433c9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>viewer::NodePtr_t</type>
+      <name>NodePtr_t</name>
+      <anchorfile>a00130.html</anchorfile>
+      <anchor>a0cf18beb691ad250ee564aeb9daf7bca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>viewer::GroupNodePtr_t</type>
+      <name>GroupNodePtr_t</name>
+      <anchorfile>a00130.html</anchorfile>
+      <anchor>a62c289c900586993fcfe4ee090b50691</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>viewer::Configuration</type>
+      <name>Configuration</name>
+      <anchorfile>a00130.html</anchorfile>
+      <anchor>ae618d3e580f932eabc0c416c2d4ec4fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>viewer::shared_ptr&lt; WindowsManager &gt;</type>
+      <name>WindowsManagerPtr_t</name>
+      <anchorfile>a00130.html</anchorfile>
+      <anchor>a2fa8d46f1103b355a691ccdd01c99903</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>viewer::WindowManagerPtr_t</type>
+      <name>WindowManagerPtr_t</name>
+      <anchorfile>a00130.html</anchorfile>
+      <anchor>ad09bf5d998d0b6e479d8ff6e43794e11</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>WindowsManager::WindowID</type>
+      <name>WindowID</name>
+      <anchorfile>a00130.html</anchorfile>
+      <anchor>a80f032b5815101ac520f730607f1b63c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const int</type>
+      <name>DockKeyShortcutBase</name>
+      <anchorfile>a00130.html</anchorfile>
+      <anchor>a87790a9a31b590ac12a5c378c5f34ae4</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::gui::path_graph</name>
+    <filename>a00030.html</filename>
+    <class kind="class">gepetto::gui::path_graph::ComGetter</class>
+    <class kind="class">gepetto::gui::path_graph::DataQCP</class>
+    <class kind="class">gepetto::gui::path_graph::JointAction</class>
+    <class kind="class">gepetto::gui::path_graph::Plugin</class>
+    <class kind="class">gepetto::gui::path_graph::VelGetter</class>
+    <class kind="class">gepetto::gui::path_graph::Velocities</class>
+    <member kind="variable">
+      <type>tuple</type>
+      <name>colors</name>
+      <anchorfile>a00030.html</anchorfile>
+      <anchor>a4b242d9ef7ede0df7a9f1ef28c4b782a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>tuple</type>
+      <name>lineStyles</name>
+      <anchorfile>a00030.html</anchorfile>
+      <anchor>af7788cd27d4eef7cc05c5e1cc3633f2d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>list</type>
+      <name>pens</name>
+      <anchorfile>a00030.html</anchorfile>
+      <anchor>a13abcd780ab9c3be808dad010dd4595d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>qpen</name>
+      <anchorfile>a00030.html</anchorfile>
+      <anchor>a8aa1f0ae6594530cd02874b9d778fbd8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::manipulation</name>
+    <filename>a00031.html</filename>
+    <namespace>gepetto::manipulation::viewer</namespace>
+    <namespace>gepetto::manipulation::viewer_factory</namespace>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::manipulation::viewer</name>
+    <filename>a00032.html</filename>
+    <class kind="class">gepetto::manipulation::viewer::Viewer</class>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::manipulation::viewer_factory</name>
+    <filename>a00033.html</filename>
+    <class kind="class">gepetto::manipulation::viewer_factory::ViewerFactory</class>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::path_player</name>
+    <filename>a00034.html</filename>
+    <class kind="class">gepetto::path_player::PathPlayer</class>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::viewer</name>
+    <filename>a00035.html</filename>
+    <class kind="class">gepetto::viewer::Color</class>
+    <class kind="class">gepetto::viewer::Viewer</class>
+    <member kind="typedef">
+      <type>std::map&lt; std::string, PropertyPtr_t &gt;</type>
+      <name>PropertyMap_t</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a8dec06a4f28dd79f0d4733ca053803d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; bool &gt;</type>
+      <name>BoolProperty</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a5ef0961eb3447fd814301b885eeb94fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; int &gt;</type>
+      <name>IntProperty</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>ad250b088022ffa3f1452eae1fe67f8a3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; float &gt;</type>
+      <name>FloatProperty</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a1e438936350983a5dea73acce579e104</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; std::string &gt;</type>
+      <name>StringProperty</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a66aa120470946bf79f4b4a5bcd315bad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; unsigned long &gt;</type>
+      <name>UIntProperty</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>aa82660f64d56f3ce51c699b25468e971</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; osgVector2 &gt;</type>
+      <name>Vector2Property</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a5f2860c17e98f73cda424c9e6c5898e2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; osgVector3 &gt;</type>
+      <name>Vector3Property</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a3f091255a53e293e195ea5fabf12eec7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; osgVector4 &gt;</type>
+      <name>Vector4Property</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a25a68d140ced8cc6f4fa2d2a6a1c7a73</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>PropertyTpl&lt; Configuration &gt;</type>
+      <name>ConfigurationProperty</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>aacd055a9f80b3def957775c691ceab5f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>OpenThreads::Mutex</type>
+      <name>Mutex</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>af2b8c58183efb47cd567eb59fb57ac03</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>OpenThreads::ScopedLock&lt; Mutex &gt;</type>
+      <name>ScopedLock</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>af531ee51faed7f01013b25977f9ccb19</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>VisibilityMode</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>afe398fd9fe3c387789bbc0f56e84cda1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>LightingMode</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a526c3d18c0deaf24aefe9d7a836357bc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>WireFrameMode</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a88024f4dd11267da8c55332fdec0b73e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>FaceMode</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a8ec013849384a3d45537012030306a4a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>MetaEnum *</type>
+      <name>visibilityModeEnum</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a5107673c4647b5f66d33d5bae7ebe215</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>MetaEnum *</type>
+      <name>wireFrameModeEnum</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>ad061dcb3cafe56914b90def14a5b76d0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>MetaEnum *</type>
+      <name>lightingModeEnum</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a90ff0c118c54177d438566a6fb0cc676</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>MetaEnum *</type>
+      <name>glImmediateModeEnum</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a64b3c8b7a36ea49abae8b42ad87b96a7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>hppToViewerTransform</name>
+      <anchorfile>a00035.html</anchorfile>
+      <anchor>a415ad8adaa9ed87bc8dd63f3aa04bfb2</anchor>
+      <arglist>(input)</arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>VISIBILITY_ON</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>afe398fd9fe3c387789bbc0f56e84cda1a46538d3a71a5c7f864cc9b7adafe7ba7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>ALWAYS_ON_TOP</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>afe398fd9fe3c387789bbc0f56e84cda1afdf34572ae74f16d7222766f648c89a4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>VISIBILITY_OFF</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>afe398fd9fe3c387789bbc0f56e84cda1a3a5bb84f6c56cc4b541943be93d08dd2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>LIGHT_INFLUENCE_ON</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a526c3d18c0deaf24aefe9d7a836357bca530b5c20cec2b9a51ac5a07276df6f51</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>LIGHT_INFLUENCE_OFF</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a526c3d18c0deaf24aefe9d7a836357bca8e270965df7abb845804c6b361110435</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>FILL</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a88024f4dd11267da8c55332fdec0b73eae1b971fccf017d1c175e4226940a7cc4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>WIREFRAME</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a88024f4dd11267da8c55332fdec0b73ead14b19c229f6def1ff76db89e953bda8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>FILL_AND_WIREFRAME</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a88024f4dd11267da8c55332fdec0b73ea196211da5a3f3a2834d824aef5ff89ad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>FACE</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a8ec013849384a3d45537012030306a4aa964d6b696c3dd7f3d804ed5494047428</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>EDGE</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a8ec013849384a3d45537012030306a4aa377b963c2c62aa047e2dda2ca8fa142d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>FACE_AND_EDGE</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a8ec013849384a3d45537012030306a4aa60b2fa9b0f3590afa28255d161b4015b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>IntersectionBit</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a5c93e133f02543dd69d0362513736392a8ccc4970b9c55c8b2796c34034ec33f0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type></type>
+      <name>NodeBit</name>
+      <anchorfile>a00131.html</anchorfile>
+      <anchor>a5c93e133f02543dd69d0362513736392a7cdc0cf699d5719b913996e1fb678fa9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>gepetto::viewer_factory</name>
+    <filename>a00036.html</filename>
+    <class kind="class">gepetto::viewer_factory::ViewerFactory</class>
+  </compound>
+  <compound kind="page">
+    <name>index</name>
+    <title></title>
+    <filename>index</filename>
+    <docanchor file="index" title="Introduction">hpp_gepetto_viewer_introduction</docanchor>
+    <docanchor file="index">hpp_corbaserver_documentation</docanchor>
+    <docanchor file="index" title="Introduction">hppCorbaServer_sec_intro</docanchor>
+    <docanchor file="index" title="How to communicate with the CORBA server">hppCorbaServer_sec_howto</docanchor>
+    <docanchor file="index" title="How to embed a server in an application">hppCorbaServer_sec_embedding</docanchor>
+    <docanchor file="index">hpp_core_documentation</docanchor>
+    <docanchor file="index" title="Introduction">hpp_pinocchio_intro</docanchor>
+    <docanchor file="index" title="What is Pinocchio?">OverviewIntro</docanchor>
+    <docanchor file="index" title="How to install Pinocchio?">OverviewInstall</docanchor>
+    <docanchor file="index" title="Simplest example with compilation command">OverviewSimple</docanchor>
+    <docanchor file="index" title="Compiling and running your program">OverviewSimpleCompile</docanchor>
+    <docanchor file="index" title="Explanation of the program">OverviewSimpleExplain</docanchor>
+    <docanchor file="index" title="More complex example with C++ and Python">OverviewComplex</docanchor>
+    <docanchor file="index" title="Compiling and running your program">OverviewComplexCompile</docanchor>
+    <docanchor file="index" title="Explanation of the program">OverviewComplexExplain</docanchor>
+    <docanchor file="index" title="About Python wrappings">OverviewPython</docanchor>
+    <docanchor file="index" title="How to cite Pinocchio">OverviewCite</docanchor>
+    <docanchor file="index" title="Where to go from here?">OverviewConclu</docanchor>
+    <docanchor file="index">hpp_constraints_documentation</docanchor>
+    <docanchor file="index" title="Introduction">hpp_template_corba_sec_intro</docanchor>
+    <docanchor file="index" title="Principle">hpp_template_corba_sec_principle</docanchor>
+    <docanchor file="index" title="How to">hpp_template_corba_sec_how_to</docanchor>
+    <docanchor file="index" title="Implementing the server">hpp_template_corba_subsec_server</docanchor>
+    <docanchor file="index" title="Implementing the client">hpp_template_corba_subsec_client</docanchor>
+    <docanchor file="index" title="Running the server and client">hpp_template_corba_subsec_running</docanchor>
+    <docanchor file="index" title="CORBA interface">gepetto_gui_corba</docanchor>
+    <docanchor file="index" title="Graphical user interface">gepetto_gui_ui</docanchor>
+    <docanchor file="index" title="Introduction">gepetto_viewer_sec_intro</docanchor>
+  </compound>
+</tagfile>

@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-statistics
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-statistics
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-statistics/doxygen-html
+
+Name: hpp-statistics
+Description: Classes for doing statistics.
+URL: 
+Version: 4.5.0
+Requires: hpp-util >= 3.2
+Conflicts: 
+Libs: -L${libdir}  -lhpp-statistics
+Libs.private: 
+Cflags:  -I${includedir}
+
+

@@ -1,0 +1,22 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/hpp-constraints
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/hpp-constraints
+doxygendocdir=/local/devel/hpp/install/share/doc/hpp-constraints/doxygen-html
+
+Name: hpp-constraints
+Description: Definition of basic geometric constraints for motion planning
+URL: https://github.com/humanoid-path-planner/hpp-constraints
+Version: 4.6.0-36-gcfb7
+Requires: eigen3 >= 3.2.92, hpp-pinocchio >= 4, hpp-statistics, romeo_description
+Conflicts: 
+Libs: -L${libdir}  -lhpp-constraints
+Libs.private: 
+Cflags:  -I${includedir} -I/usr/include
+
+

@@ -1,0 +1,49 @@
+// Copyright (c) 2019, LAAS-CNRS
+// Authors: Joseph Mirabel (joseph.mirabel@laas.fr)
+//
+// This file is part of hpp-manipulation-corba.
+// hpp-manipulation-corba is free software: you can redistribute it
+// and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation, either version
+// 3 of the License, or (at your option) any later version.
+//
+// hpp-manipulation-corba is distributed in the hope that it will be
+// useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Lesser Public License for more details.  You should have
+// received a copy of the GNU Lesser General Public License along with
+// hpp-manipulation-corba. If not, see <http://www.gnu.org/licenses/>.
+
+
+#ifndef HPP_MANIPULATION_STEERING_METHODS_IDL
+#define HPP_MANIPULATION_STEERING_METHODS_IDL
+
+#include "hpp/corbaserver/manipulation/gcommon.idl"
+#include <hpp/common.idl>
+#include <hpp/constraints_idl/constraints.idl>
+#include <hpp/core_idl/steering_methods.idl>
+
+module hpp {
+  module constraints_idl {
+    interface Implicit;
+  };
+  module core_idl {
+    interface SteeringMethod;
+    interface Path;
+  };
+  module manipulation_idl {
+    module steeringMethod {
+      interface EndEffectorTrajectory : core_idl::SteeringMethod
+      {
+        void trajectoryConstraint (in constraints_idl::Implicit c) raises (Error);
+        void trajectory (in core_idl::Path eeTraj, in boolean se3Output) raises (Error);
+      }; // interface SteeringMethod
+    }; // module steeringMethod
+  }; // module manipulation
+}; // module hpp
+
+//* #include <hpp/constraints_idl/constraints.hh>
+//* #include <hpp/core_idl/steering_methods.hh>
+//* #include <hpp/manipulation/steering-method/end-effector-trajectory.hh>
+
+#endif // HPP_MANIPULATION_STEERING_METHODS_IDL

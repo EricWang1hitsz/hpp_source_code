@@ -1,0 +1,19 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title="STL class. " alt="" coords="5,452,96,479"/>
+<area shape="rect" id="node2" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; Frame \&gt;" alt="" coords="175,5,341,32"/>
+<area shape="rect" id="node3" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; Geometry\lObject \&gt;" alt="" coords="171,57,345,98"/>
+<area shape="rect" id="node4" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; InertiaTpl\l\&lt; Scalar, Options \&gt; \&gt;" alt="" coords="172,122,344,163"/>
+<area shape="rect" id="node5" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; JointData \&gt;" alt="" coords="165,188,351,215"/>
+<area shape="rect" id="node6" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; JointData\lVariant \&gt;" alt="" coords="171,239,345,281"/>
+<area shape="rect" id="node7" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; JointModel \&gt;" alt="" coords="161,305,355,332"/>
+<area shape="rect" id="node8" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; JointModel\lVariant \&gt;" alt="" coords="167,357,349,398"/>
+<area shape="rect" id="node9" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; Matrix6x \&gt;" alt="" coords="168,423,348,449"/>
+<area shape="rect" id="node10" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; pinocchio\l::ForceTpl \&gt;" alt="" coords="171,474,345,515"/>
+<area shape="rect" id="node11" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; pinocchio\l::InertiaTpl \&gt;" alt="" coords="171,539,345,581"/>
+<area shape="rect" id="node12" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; pinocchio\l::MotionTpl \&gt;" alt="" coords="171,605,345,646"/>
+<area shape="rect" id="node13" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; pinocchio\l::SE3Tpl \&gt;" alt="" coords="171,670,345,711"/>
+<area shape="rect" id="node14" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; Transformation_t \&gt;" alt="" coords="144,736,372,763"/>
+<area shape="rect" id="node15" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; typename\l pinocchio::InertiaTpl\l::Matrix6 \&gt;" alt="" coords="171,787,345,843"/>
+<area shape="rect" id="node16" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="aligned_vector\&lt; Vector3 \&gt;" alt="" coords="171,867,345,893"/>
+<area shape="rect" id="node17" href="$structpinocchio_1_1container_1_1aligned__vector.html" title="Specialization of an std::vector with an aligned allocator. This specialization might be used when th..." alt="" coords="189,917,327,944"/>
+</map>

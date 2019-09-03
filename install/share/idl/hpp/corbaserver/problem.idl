@@ -1,0 +1,739 @@
+// Copyright (C) 2009, 2010 by Florent Lamiraux, Thomas Moulard, JRL.
+//
+// This file is part of the hpp-corbaserver.
+//
+// This software is provided "as is" without warranty of any kind,
+// either expressed or implied, including but not limited to the
+// implied warranties of fitness for a particular purpose.
+//
+// See the COPYING file for more information.
+
+#ifndef HPP_CORBASERVER_PROBLEM_SERVER_IDL
+#define HPP_CORBASERVER_PROBLEM_SERVER_IDL
+#include <hpp/common.idl>
+#include <hpp/constraints_idl/constraints.idl>
+#include <hpp/core_idl/distances.idl>
+#include <hpp/core_idl/paths.idl>
+#include <hpp/core_idl/steering_methods.idl>
+#include <hpp/core_idl/path_planners.idl>
+#include <hpp/core_idl/path_validations.idl>
+#include <hpp/core_idl/_problem.idl>
+
+module hpp
+{
+  module corbaserver {
+  /// \brief To define and solve a path planning problem.
+  interface Problem
+  {
+    /// Set random seed of random number generator
+    void setRandomSeed (in long seed) raises (Error);
+
+    /// \copydoc hpp::corbaserver::problem_solver::ProblemSolver::setMaxNumThreads
+    void setMaxNumThreads (in unsigned short n) raises (Error);
+
+    /// \copydoc hpp::corbaserver::problem_solver::ProblemSolver::getMaxNumThreads
+    unsigned short getMaxNumThreads () raises (Error);
+
+    /// Return a list of available elements of type type
+    /// \param type enter "type" to know what types I know of.
+    ///             This is case insensitive.
+    Names_t getAvailable (in string type) raises (Error);
+
+    /// Return a list of selected elements of type type
+    /// \param type enter "type" to know what types I know of.
+    ///             This is case insensitive.
+    /// \note For most of the types, the list will contain only one element.
+    Names_t getSelected (in string type) raises (Error);
+
+    /// Set a parameter
+    /// \param value the input type must be long, double, const char*
+    void setParameter (in string name, in any value) raises (Error);
+
+    /// Get parameter with given name
+    /// raise an exception when the parameter is not found.
+    any getParameter (in string name) raises (Error);
+
+    /// Get parameter documentation
+    /// raise an exception when the parameter is not found.
+    string getParameterDoc (in string name) raises (Error);
+
+    /// Select a problem by its name.
+    /// If no problem with this name exists, a new problem is created and selected.
+    /// \param name the problem name.
+    /// \return true if a new problem was created.
+    boolean selectProblem (in string name) raises (Error);
+
+    /// Reset the current problem.
+    void resetProblem () raises (Error);
+
+    /// \copydoc hpp::corbaserver::problem_solver::ProblemSolver::loadPlugin
+    boolean loadPlugin (in string pluginName) raises (Error);
+
+    /// Move a path from the current problem to another problem.
+    /// \param problemName the destination problem
+    /// \param jointNames a list of joint names representing the subchain to
+    ///        extract from the original path.
+    /// \todo the configuration parameter can be selected but not reorganized.
+    void movePathToProblem (in unsigned long pathId, in string problemName,
+        in Names_t jointNames) raises (Error);
+
+    /// \name Initial and goal configurations
+    /// \{
+
+    /// Set initial configuration of specified problem.
+    ///	\param dofArray Array of degrees of freedom
+    ///	\throw Error.
+    void setInitialConfig (in floatSeq dofArray) raises (Error);
+
+    /// Get initial configuration of specified problem.
+    ///	\return Array of degrees of freedom
+     floatSeq getInitialConfig () raises (Error);
+
+    /// \brief Add goal configuration to specified problem.
+    ///	\param dofArray Array of degrees of freedom
+    ///	\throw Error.
+    void addGoalConfig (in floatSeq dofArray) raises (Error);
+
+    /// Get goal configurations of specified problem.
+    ///	\return Array of degrees of freedom
+    floatSeqSeq getGoalConfigs () raises (Error);
+
+    /// Reset goal configurations
+    void resetGoalConfigs () raises (Error);
+
+    /// \}
+
+    /// \name Constraints
+    /// \{
+
+    /// Apply constaints to a configuration
+    ///
+    /// constraints are stored in ProblemSolver object
+    /// \param input input configuration,
+    /// \retval output output configuration,
+    /// \retval error norm of the residual error.
+    boolean applyConstraints (in floatSeq input, out floatSeq output,
+			      out double residualError)
+      raises (Error);
+
+    /// Find a local minimum of the least priority constraints
+    ///
+    /// while respecting the other priorities.
+    /// \param input input configuration,
+    /// \retval output output configuration,
+    /// \retval residualError.
+    boolean optimize (in floatSeq input, out floatSeq output,
+                      out floatSeq residualError)
+      raises (Error);
+
+    /// Compute value and Jacobian of numerical constraints
+    ///
+    /// \param config input configuration
+    /// \retval value values of the numerical constraints stacked in a unique
+    ///         vector,
+    /// \retval Jacobian of the numerical constraints stacked in a unique
+    ///         matrix.
+    ///
+    /// Columns of the Jacobian corresponding to locked joints are omitted,
+    /// columns corresponding to passive dofs are set to 0.
+    void computeValueAndJacobian (in floatSeq config, out floatSeq value,
+				  out floatSeqSeq jacobian) raises (Error);
+
+    /// Generate random configuration and apply constaints to a configuration
+    ///
+    /// constraints are stored in ProblemSolver object
+    /// The class hpp::core::BasicConfigurationShooter is used for random
+    /// generation of configuration.
+    /// \param maxIter maximum number of tries,
+    /// \retval output output configuration,
+    /// \retval error norm of the residual error.
+    boolean generateValidConfig (in unsigned long maxIter, out floatSeq output,
+			      out double residualError)
+      raises (Error);
+
+    /// Create orientation constraint between two joints
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param joint1Name name of first joint
+    /// \param joint2Name name of second joint
+    /// \param p quaternion representing the desired orientation
+    ///        of joint2 in the frame of joint1.
+    /// \param mask Select which axis to be constrained.
+    /// If joint1 of joint2 is "", the corresponding joint is replaced by
+    /// the global frame.
+    /// constraints are stored in ProblemSolver object
+    void createOrientationConstraint
+    (in string constraintName, in string joint1Name,
+     in string joint2Name, in Quaternion_ p,
+     in boolSeq mask) raises (Error);
+
+
+    /// Create transformation constraint between two joints
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param joint1Name name of first joint
+    /// \param joint2Name name of second joint
+    /// \param ref desired transformation of joint2 in the frame of joint1.
+    /// \param mask Select which axis to be constrained.
+    /// If joint1 of joint2 is "", the corresponding joint is replaced by
+    /// the global frame.
+    /// constraints are stored in ProblemSolver object with key constraintName
+    void createTransformationConstraint
+    (in string constraintName, in string joint1Name,
+     in string joint2Name, in Transform_ ref,
+     in boolSeq mask) raises (Error);
+
+    /// \copydoc hpp::corbaserver::Problem::createTransformationConstraint2
+    /// \note the function outputs an element of SE3
+    void createTransformationSE3Constraint
+    (in string constraintName, in string joint1Name, in string joint2Name,
+     in Transform_ frame1, in Transform_ frame2, in boolSeq mask) raises (Error);
+
+    /// Create transformation constraint between two joints
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param joint1Name name of first joint
+    /// \param joint2Name name of second joint
+    /// \param frame1 desired frame in joint1
+    /// \param frame2 desired frame in joint2
+    /// \param mask Select which axis to be constrained.
+    /// If joint1 of joint2 is "", the corresponding joint is replaced by
+    /// the global frame.
+    /// constraints are stored in ProblemSolver object with key constraintName
+    void createTransformationConstraint2
+    (in string constraintName, in string joint1Name,
+     in string joint2Name, in Transform_ frame1, in Transform_ frame2,
+     in boolSeq mask) raises (Error);
+
+    /// Create a LockedJoint constraint with given value
+    /// \param lockedJointName key of the constraint in the ProblemSolver map,
+    /// \param jointName name of the joint,
+    /// \param value value of the joint configuration,
+    void createLockedJoint (in string lockedJointName,
+                            in string jointName,
+                            in floatSeq value) raises (Error);
+
+    /// Create a locked extradof
+    ///        hpp::manipulation::ProblemSolver map
+    /// \param lockedDofName key of the constraint in the Problem Solver map
+    /// \param index index of the extra dof (0 means the first extra dof)
+    /// \param value value of the extra dof configuration. The size
+    ///              of this vector defines the size of the constraints.
+    void createLockedExtraDof (in string lockedDofName,
+                               in unsigned long index,
+                               in floatSeq value) raises (Error);
+
+    /// Create a manipulatibility constraint
+    /// \param name key of the constraint in the Problem Solver map
+    /// \param function name of the function used to get the Jacobian matrix.
+    void createManipulability (in string name,
+                               in string function) raises (Error);
+
+    /// Create ComBeetweenFeet constraint between two joints
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param comName name of a partial com computation object
+    ///        in problem solver map. Set "" for a full COM computation.
+    /// \param jointLName name of first joint
+    /// \param jointRName name of second joint
+    /// \param pointL point in local frame of jointL.
+    /// \param pointR point in local frame of jointR.
+    /// \param jointRefName name of second joint
+    /// \param pointRef point in local frame of jointRef
+    /// \param mask Select axis to be constrained.
+    /// If jointRef is "", the global frame is used.
+    /// Constraints are stored in ProblemSolver object
+    void createComBeetweenFeet (in string constraintName, in string comName,
+            in string jointLName, in string jointRName, in floatSeq pointL,
+            in floatSeq pointR, in string jointRefName, in floatSeq pointRef,
+            in boolSeq mask)
+        raises (Error);
+
+    /// Create RelativeCom constraint between two joints
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param comName name of CenterOfMassComputation
+    /// \param jointName name of joint
+    /// \param point point in local frame of joint.
+    /// \param mask Select axis to be constrained.
+    /// If jointName is "", the robot root joint is used.
+    /// Constraints are stored in ProblemSolver object
+    void createRelativeComConstraint (in string constraintName, in string comName,
+        in string jointLName, in floatSeq point, in boolSeq mask)
+      raises (Error);
+
+    void createConvexShapeContactConstraint
+    (in string constraintName, in Names_t floorJoints, in Names_t objectJoints,
+     in floatSeqSeq pts, in intSeqSeq objectTriangles,
+     in intSeqSeq floorTriangles) raises (Error);
+
+    void createStaticStabilityConstraint (in string constraintName,
+     in Names_t jointNames, in floatSeqSeq points, in floatSeqSeq normals,
+     in string comRootJointName)
+      raises (Error);
+
+    /// Create position constraint between two joints
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param joint1Name name of first joint
+    /// \param joint2Name name of second joint
+    /// \param point1 point in local frame of joint1,
+    /// \param point2 point in local frame of joint2.
+    /// \param mask Select which axis to be constrained.
+    /// If joint1 of joint2 is "", the corresponding joint is replaced by
+    /// the global frame.
+    /// constraints are stored in ProblemSolver object
+    void createPositionConstraint (in string constraintName,
+				   in string joint1Name,
+				   in string joint2Name,
+				   in floatSeq point1,
+				   in floatSeq point2,
+				   in boolSeq mask)
+      raises (Error);
+
+    /// \param goal configuration
+    /// \param weights vector of weights on each DoF
+    void createConfigurationConstraint (in string constraintName,
+				        in floatSeq goal,
+                                        in floatSeq weights)
+      raises (Error);
+
+
+    /// Create distance constraint between robot objects
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param joint1Name name of first joint,
+    /// \param joint2Name name of second joint,
+    /// \param distance desired distance between joint bodies.
+    /// Constraints are stored in ProblemSolver object
+    void createDistanceBetweenJointConstraint
+    (in string constraintName, in string joint1Name, in string joint2Name,
+     in double distance) raises (Error);
+
+    /// Create distance constraint between robot and environment objects
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param joint1Name name of first joint,
+    /// \param objects names of environment objects,
+    /// \param distance desired distance between joint bodies.
+    /// Constraints are stored in ProblemSolver object
+    void createDistanceBetweenJointAndObjects
+    (in string constraintName, in string joint1Name, in Names_t objects,
+     in double distance) raises (Error);
+
+    /// Create identity constraint between several joints.
+    ///
+    /// \param constraintName name of the constraint created,
+    /// \param inJoints name of the input joints,
+    /// \param outJoints name of the output joints,
+    /// Constraints are stored in ProblemSolver object
+    /// \sa hpp::constraints::Identity
+    void createIdentityConstraint
+    (in string constraintName, in Names_t inJoints, in Names_t outJoints)
+      raises (Error);
+
+    /// Reset constraints
+    void resetConstraints () raises (Error);
+
+    /// \copydoc hpp::corbaserver::problem_solver::ProblemSolver::resetConstraintMap
+    void resetConstraintMap () raises (Error);
+
+    /// Add vector of passive dofs into the ProblemSolver local map
+    /// \param constraintName Name of the vector of passive dofs,
+    /// \param jointNames a sequence of joint names.
+    void addPassiveDofs (in string constraintName, in Names_t jointNames)
+      raises (Error);
+
+    /// Get constraint dimensions
+    void getConstraintDimensions (in string constraintName,
+        out unsigned long inputSize , out unsigned long inputDerivativeSize,
+        out unsigned long outputSize, out unsigned long outputDerivativeSize)
+      raises (Error);
+
+    /// (Dis-)Allow to modify right hand side of a numerical constraint
+    /// \param constraintName Name of the numerical constraint,
+    /// \param constant whether right hand side is constant
+    ///
+    /// Constraints should have been added in the ProblemSolver local map,
+    /// but not inserted in the config projector.
+    void setConstantRightHandSide (in string constraintName,
+				   in boolean constant)
+      raises (Error);
+
+    /// Get whether right hand side of a numerical constraint is constant
+    /// \param constraintName Name of the numerical constraint,
+    /// \return whether right hand side is constant
+    boolean getConstantRightHandSide (in string constraintName)
+      raises (Error);
+
+    /// Get right hand side of constraints in config projector
+    floatSeq getRightHandSide () raises (Error);
+
+    /// Set right hand side of constraints in config projector
+    /// \param rhs right hand side of constraints. Contains only right hand side
+    ///        of non-constant constraints
+    /// \note Locked joints are also considered.
+    void setRightHandSide (in floatSeq rhs) raises (Error);
+
+    /// Set right hand side of constraints in config projector
+    /// \param config a robot configuration use to compute the right hand side
+    ///        of constraints. Contains only right hand side of non-constant
+    ///        constraints
+    /// \note Locked joints are also considered.
+    void setRightHandSideFromConfig (in floatSeq config) raises (Error);
+
+    /// Set right hand side of given constraint in config projector
+    /// \param constraintName name of the numerical constraint or locked joint
+    /// \param rhs right hand side of constraint. raises an exception if
+    ///        constraint has constant right hand side.
+    void setRightHandSideByName (in string constraintName, in floatSeq rhs)
+      raises (Error);
+
+    /// Set right hand side of given constraint in config projector
+    /// \param constraintName name of the numerical constraint or locked joint
+    /// \param config a robot configuration use to compute the right hand side.
+    ///        raises an exception if constraint has constant right hand side.
+    void setRightHandSideFromConfigByName (in string constraintName, in floatSeq config)
+      raises (Error);
+
+    /// Add numerical constraints by names in ConfigProjector
+    /// \param configProjName Name of the config projector if created by this
+    ///        method,
+    /// \param constraintNames names of the constraints to apply,
+    ///
+    /// Constraints should have been added in the ProblemSolver local map.
+    void addNumericalConstraints (in string configProjName,
+				  in Names_t constraintNames,
+                                  in intSeq priorities)
+      raises (Error);
+
+    /// Declare last priority order as optional in the numerical constraints
+    ///
+    ///
+    void setNumericalConstraintsLastPriorityOptional (in boolean optional)
+      raises (Error);
+
+    /// Add locked joints by names in ConfigProjector
+    /// \param configProjName Name of the config projector if created by this
+    ///        method,
+    /// \param lockedJointNames names of the locked joints,
+    ///
+    /// Locked joints should have been added in the ProblemSolver local map.
+    void addLockedJointConstraints (in string configProjName,
+                                    in Names_t lockedJointNames) raises (Error);
+
+    /// Display the constraint in the ConfigProjector
+    string displayConstraints () raises (Error);
+
+    /// Get error threshold in numerical constraint resolution
+    double getErrorThreshold () raises (Error);
+
+    /// Set error threshold in numerical constraint resolution
+    void setErrorThreshold (in double threshold) raises (Error);
+
+    void setDefaultLineSearchType (in string type) raises (Error);
+
+    /// Set maximal number of iterations in numerical constraint resolution
+    unsigned long getMaxIterProjection () raises (Error);
+
+    /// Set maximal number of iterations in numerical constraint resolution
+    void setMaxIterProjection (in unsigned long iterations) raises (Error);
+
+    /// Get maximal number of iterations in path planning
+    unsigned long getMaxIterPathPlanning () raises (Error);
+
+    /// Set maximal number of iterations in path planning
+    void setMaxIterPathPlanning (in unsigned long iterations) raises (Error);
+
+    /// \name Symbolic calculus
+    /// \{
+
+    /// See hpp::constraints::ScalarMultiply
+    void scCreateScalarMultiply (in string outName, in double scalar, in string inName) raises (Error);
+
+    /// Get time out in path planning (in seconds)
+    double getTimeOutPathPlanning () raises (Error);
+
+    /// Set time out in path planning (in seconds)
+    void setTimeOutPathPlanning (in double timeOut) raises (Error);
+
+
+    /// \}
+    /// \}
+
+    /// \name Collision checking
+    /// \{
+
+    /// Build matrix of relative motions between joints
+    ///
+    /// See hpp::core::Problem::filterCollisionPairs.
+    void filterCollisionPairs () raises (Error);
+
+    /// \}
+
+    /// \name Solve problem and get paths
+    /// \{
+
+    /// Select path planner type
+    /// \param Name of the path planner type, either "DiffusingPlanner",
+    ///        "VisibilityPrmPlanner", or any type added by method
+    ///        core::ProblemSolver::addPathPlannerType
+    void selectPathPlanner (in string pathPlannerType) raises (Error);
+
+    /// Select configuration shooter type
+    /// \param Name of the configuration planner type, either
+    ///        "Uniform" or any type added by method
+    ///        core::ProblemSolver::addConfigurationShooterType
+    void selectConfigurationShooter (in string configurationShooterType) raises (Error);
+
+    /// Select distance type
+    /// \param Name of the distance type, either
+    ///        "WeighedDistance" or any type added by method
+    ///        core::ProblemSolver::addDistanceType
+    void selectDistance (in string distanceType) raises (Error);
+
+
+    /// Select steering method type
+    /// \param Name of the steering method type, either
+    ///        "SteeringMethodStraight" or any type added by method
+    ///        core::ProblemSolver::addSteeringMethodType
+    void selectSteeringMethod (in string steeringMethodType) raises (Error);
+
+    /// Add a path optimizer
+    /// \param Name of the path optimizer type, either "RandomShortcut" or
+    /// any type added by core::ProblemSolver::addPathOptimizerType
+    void addPathOptimizer (in string pathOptimizerType) raises (Error);
+
+    /// Clear the vector of path optimizers
+    void clearPathOptimizers () raises (Error);
+
+    /// Add a config validation
+    /// \param Name of the config validation type, either "CollisionValidation"
+    /// or "JointBoundValidation" or any type added by
+    /// core::ProblemSolver::addConfigValidationType
+    void addConfigValidation (in string configValidationType) raises (Error);
+
+    /// Clear the vector of config validations
+    void clearConfigValidations () raises (Error);
+
+    /// Select path validation method
+    /// \param Name of the path validation method, either "Discretized"
+    /// "Progressive", "Dichotomy", or any type added by
+    /// core::ProblemSolver::addPathValidationType,
+    /// \param tolerance maximal acceptable penetration.
+    void selectPathValidation (in string pathValidationType,
+			       in double tolerance) raises (Error);
+
+    /// Select path projector method
+    /// \param Name of the path projector method, either "None"
+    /// "Progressive", "Dichotomy", or any type added by
+    /// core::ProblemSolver::addPathProjectorType,
+    /// \param tolerance
+    void selectPathProjector (in string pathProjectorType,
+                              in double tolerance) raises (Error);
+
+    /// Prepare the solver for a step by step planning.
+    /// and try to make direct connections (call PathPlanner::tryDirectPath)
+    /// \return True if a direct connection has been found.
+    boolean prepareSolveStepByStep () raises (Error);
+
+    /// Execute one step of the planner.
+    /// \return True if a path has been found.
+    /// \note This won't check if a solution has been found before doing one step.
+    /// The decision to stop planning is let to the user.
+    boolean executeOneStep () raises (Error);
+
+    /// Finish the step-by-step planning.
+    /// The path optimizer is not called
+    void finishSolveStepByStep () raises (Error);
+
+    /// Solve the problem.
+    /// \return the running time as 4 integers repectively representing
+    ///         the number of hours, minutes, seconds, microseconds.
+    /// \throw Error.
+    intSeq solve() raises (Error);
+
+    /// Make direct connection between two configurations
+    /// \param startConfig, endConfig: the configurations to link.
+    /// \param validate whether path should be validated. If true, path
+    ///        validation is called and only valid part of path is inserted
+    ///        in the path vector.
+    /// \retval pathId returns index of copmuted path in path vector.
+    /// \retval report the reason why the config is not valid.
+    /// \return TRUE if created path is fully valid.
+    boolean directPath (in floatSeq startConfig, in floatSeq endConfig,
+			in boolean validate,
+			out unsigned long pathId, out string report)
+      raises (Error);
+
+    /// Reverse a path
+    /// \return TRUE if created path is fully valid.
+    boolean reversePath (in unsigned long pathId, out unsigned long reversedPathId)
+      raises (Error);
+
+    /// add a configuration to a roadmap
+    ///
+    /// \param config Configuration to add
+    ///
+    /// A node is created if necessary.
+    void addConfigToRoadmap (in floatSeq config) raises(Error);
+
+    /// Add an edge to the roadmap.
+    ///
+    /// \param config1 configuration of start node,
+    /// \param config2 configuration of destination node,
+    /// \param pathId index of the path to store in the edge in the path vector,
+    /// \param bothEdges whether to also insert edge from destination node to
+    ///        start node.
+    /// \sa hpp::core::ProblemSolver::addEdgeToRoadmap.
+    void addEdgeToRoadmap (in floatSeq config1, in floatSeq config2,
+			   in unsigned long pathId, in boolean bothEdges)
+      raises (Error);
+
+    /// \copydoc hpp::corbaserver::problem_solver::ProblemSolver::appendDirectPath
+    void appendDirectPath (in unsigned long pathId, in floatSeq config, in boolean validate)
+      raises (Error);
+
+    /// \copydoc hpp::corbaserver::problem_solver::ProblemSolver::concatenatePath
+    void concatenatePath (in unsigned long startId, in unsigned long endId)
+      raises (Error);
+
+    /// \copydoc hpp::corbaserver::problem_solver::ProblemSolver::extractPath
+    void extractPath (in unsigned long pathId, in double start, in double end)
+	    raises (Error);
+
+    /// \copydoc hpp::corbaserver::problem_solver::ProblemSolver::erasePath
+    void erasePath (in unsigned long pathId)
+      raises (Error);
+
+    /// Apply the path projector method to the path
+    /// \return true in case of success.
+    boolean projectPath (in unsigned long patId) raises (Error);
+
+    /// Get Number of paths
+    long numberPaths () raises (Error);
+
+    /// Optimize a given path
+    /// \param inPathId Id of the path in this problem.
+    /// \return the running time as 4 integers repectively representing
+    ///         the number of hours, minutes, seconds, microseconds.
+    /// \throw Error.
+    intSeq optimizePath(in unsigned long inPathId) raises (Error);
+
+    /// Get length of path
+    /// \param inPathId rank of the path in the problem
+    /// \return length of path if path exists.
+    double pathLength(in unsigned long inPathId) raises (Error);
+
+    /// Get the robot config at param on a path
+    /// \param inPathId rank of the path in the problem
+    /// \param atDistance : the user parameter choice
+    /// \return floatSeq : the config at param
+    floatSeq configAtParam(in unsigned long inPathId, in double atDistance)
+      raises (Error);
+
+    /// Get the robot velocity at param on a path
+    /// \param inPathId rank of the path in the problem
+    /// \param orderId order of the derivative
+    /// \param atDistance : the user parameter choice
+    /// \return floatSeq : the velocity at param
+    floatSeq derivativeAtParam(in unsigned long inPathId, in unsigned long orderId, in double atDistance)
+      raises (Error);
+
+    /// Get way points of a path
+    /// \param pathId rank of the path in the problem
+    floatSeqSeq getWaypoints (in unsigned long pathId, out floatSeq times) raises (Error);
+
+    /// \}
+
+    /// \name Interruption of a path planning request
+    /// \{
+
+    /// \brief Interrupt path planning activity
+    /// \note this request is effective only when multi-thread policy is used
+    ///       by CORBA server.
+    /// See constructor of class Server for details.
+    void interruptPathPlanning() raises (Error);
+    ///\}
+
+    /// \name exploring the roadmap
+    /// \{
+
+    /// Nodes of the roadmap
+    floatSeqSeq nodes () raises (Error);
+
+		// number of nodes in the roadmap
+    long numberNodes() raises (Error);
+
+    // return the configuration of the node nodeId
+    floatSeq node(in unsigned long nodeId) raises(Error);
+
+    /// return the connected component index of the edge
+    long connectedComponentOfEdge(in unsigned long edgeId) raises(Error);
+
+    /// return the connected component index of the node
+    long connectedComponentOfNode(in unsigned long nodeId) raises(Error);
+
+    /// Number of edges
+    long numberEdges () raises (Error);
+
+    /// Edge at given rank
+    void edge (in unsigned long edgeId, out floatSeq q1, out floatSeq q2)
+      raises (Error);
+
+    /// Number of connected components
+    long numberConnectedComponents ();
+
+    /// Nodes of a connected component
+    /// \param connectedComponentId index of connected component in roadmap
+    /// \return list of nodes of the connected component.
+    floatSeqSeq nodesConnectedComponent (in unsigned long connectedComponentId)
+      raises (Error);
+
+    /// Return nearest neighbour of given input configuration.
+    /// \param connectedComponentId is the index of a connected component in the roadmap.
+    ///	   	     If connectedComponentId is negative, function goes through all
+    ///		     connected components looking for the nearest node (configuration).
+    /// \param distance returns the one-dimensional distance between \param config and
+    ///              computed nearest node (configuration).
+    floatSeq getNearestConfig(in floatSeq config, in long connectedComponentId, out double distance)
+	raises (Error);
+
+    /// Clear the roadmap
+    void clearRoadmap () raises (Error);
+
+    /// Reset the roadmap
+    /// This should be done when joints bounds are modified because the KDTree
+    /// must be resized.
+    void resetRoadmap () raises (Error);
+
+    /// Save the current roadmap in a file
+    /// \param filename name of the file where the roadmap is saved
+    void saveRoadmap (in string filename) raises (Error);
+
+    /// Read a roadmap from a file
+    /// \param filename name of the file from which the roadmap is read.
+    void readRoadmap (in string filename) raises (Error);
+
+    core_idl::Distance getDistance () raises (Error);
+
+    void setDistance (in core_idl::Distance distance) raises (Error);
+
+    core_idl::Path getPath (in unsigned long pathId) raises (Error);
+
+    unsigned long addPath (in core_idl::PathVector _path) raises (Error);
+
+    core_idl::SteeringMethod getSteeringMethod () raises (Error);
+
+    core_idl::PathValidation getPathValidation () raises (Error);
+
+    core_idl::PathPlanner getPathPlanner () raises (Error);
+
+    core_idl::Problem getProblem () raises (Error);
+
+    constraints_idl::Implicit getConstraint (in string constraintName) raises (Error);
+    /// \}
+  };
+  }; // interface Problem
+}; // module hpp
+#endif

@@ -1,0 +1,43 @@
+// Copyright (C) 2019 by Joseph Mirabel, LAAS-CNRS.
+//
+// This file is part of the hpp-manipulation-corba.
+//
+// This software is provided "as is" without warranty of any kind,
+// either expressed or implied, including but not limited to the
+// implied warranties of fitness for a particular purpose.
+//
+// See the COPYING file for more information.
+
+#ifndef HPP_MANIPULATION_CORBA_PROBLEM_IDL
+#define HPP_MANIPULATION_CORBA_PROBLEM_IDL
+#include <hpp/core_idl/_problem.idl>
+
+module hpp
+{
+  module core_idl {
+    interface Problem;
+  }; // module core
+  
+  module manipulation_idl {
+    module graph_idl {
+      interface Graph;
+    };
+
+    interface Problem : core_idl::Problem
+    {
+      graph_idl::Graph getConstraintGraph () raises (Error);
+      //-> constraintGraph
+    }; // interface Problem
+
+  }; // module core
+}; // module hpp
+
+//* #include <hpp/core_idl/_problem.hh>
+//* #include <hpp/manipulation_idl/_graph.hh>
+//* #include <hpp/manipulation/problem.hh>
+//* #include <hpp/manipulation/steering-method/graph.hh>
+//* #include <hpp/manipulation/graph-path-validation.hh>
+
+#include <hpp/manipulation_idl/_graph.idl>
+
+#endif // HPP_MANIPULATION_CORBA_PROBLEM_IDL

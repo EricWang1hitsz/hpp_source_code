@@ -1,0 +1,24 @@
+prefix=/local/devel/hpp/install
+exec_prefix=/local/devel/hpp/install
+libdir=/local/devel/hpp/install/lib
+bindir=/local/devel/hpp/install/bin
+pkglibdir=/local/devel/hpp/install/lib/gepetto-viewer
+includedir=/local/devel/hpp/install/include
+datarootdir=/local/devel/hpp/install/share
+pkgdatarootdir=/local/devel/hpp/install/share
+docdir=/local/devel/hpp/install/share/doc/gepetto-viewer
+doxygendocdir=/local/devel/hpp/install/share/doc/gepetto-viewer/doxygen-html
+
+Name: gepetto-viewer
+Description: An user-friendly Graphical Interface
+URL: https://github.com/Gepetto/gepetto-viewer
+Version: 4.6.0-13-gb637
+Requires: openscenegraph >= 3.2, openthreads >= 2.6, openscenegraph-osgQt
+Conflicts: 
+Libs: -L${libdir}  /usr/lib/x86_64-linux-gnu/libSM.so /usr/lib/x86_64-linux-gnu/libGLU.so -lgepetto-viewer
+Libs.private: 
+Cflags:  -I${includedir} -I/usr/include -I/usr/include
+
+qtversion=4.8.7
+
+cmake_plugin=/local/devel/hpp/install/share/gepetto-viewer/cmake/gepetto-viewer-plugin.cmake

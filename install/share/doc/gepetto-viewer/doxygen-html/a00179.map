@@ -1,0 +1,16 @@
+<map id="mainwindow.hh" name="mainwindow.hh">
+<area shape="rect" id="node2" href="$a00085.html" title="gepetto/gui/fwd.hh" alt="" coords="203,266,332,293"/>
+<area shape="rect" id="node17" href="$a00086.html" title="gepetto/viewer/group\l&#45;node.h" alt="" coords="1015,80,1157,121"/>
+<area shape="rect" id="node33" href="$a00101.html" title="gepetto/gui/ledindicator.hh" alt="" coords="1169,177,1344,203"/>
+<area shape="rect" id="node35" href="$a00083.html" title="gepetto/gui/dialog\l/dialogloadrobot.hh" alt="" coords="1583,348,1714,389"/>
+<area shape="rect" id="node38" href="$a00082.html" title="gepetto/gui/dialog\l/dialogloadenvironment.hh" alt="" coords="1379,348,1553,389"/>
+<area shape="rect" id="node39" href="$a00114.html" title="gepetto/gui/dialog\l/pluginmanagerdialog.hh" alt="" coords="1657,169,1819,211"/>
+<area shape="rect" id="node46" href="$a00121.html" title="gepetto/gui/settings.hh" alt="" coords="1871,87,2026,114"/>
+<area shape="rect" id="node6" href="$a00102.html" title="gepetto/viewer/macros.h" alt="" coords="261,512,426,539"/>
+<area shape="rect" id="node10" href="$a00084.html" title="gepetto/viewer/fwd.h" alt="" coords="272,437,415,464"/>
+<area shape="rect" id="node18" href="$a00109.html" title="gepetto/viewer/node.h" alt="" coords="972,177,1123,203"/>
+<area shape="rect" id="node20" href="$a00108.html" title="gepetto/viewer/node\l&#45;visitor.h" alt="" coords="1003,259,1142,300"/>
+<area shape="rect" id="node21" href="$a00080.html" title="gepetto/viewer/config\l&#45;osg.h" alt="" coords="973,348,1119,389"/>
+<area shape="rect" id="node29" href="$a00106.html" title="gepetto/viewer/node\l&#45;property.h" alt="" coords="790,259,929,300"/>
+<area shape="rect" id="node45" href="$a00113.html" title="gepetto/gui/plugin\l&#45;interface.hh" alt="" coords="1268,259,1392,300"/>
+</map>

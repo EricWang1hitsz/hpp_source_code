@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tagfile>
+  <compound kind="file">
+    <name>main.dox</name>
+    <path>/local/devel/hpp/src/hpp-doc/build-rel/doc/</path>
+    <filename>a00068</filename>
+  </compound>
+  <compound kind="page">
+    <name>hpp_doc_algorithms</name>
+    <title>Algorithms</title>
+    <filename>a00063</filename>
+    <docanchor file="a00063" title="Technical tools">hpp_doc_algorithms_technical_tools</docanchor>
+    <docanchor file="a00063" title="Motion planning for humanoid systems">hpp_doc_algorithms_motion_planning</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>hpp_doc_corba_interface</name>
+    <title>Corba interfaces</title>
+    <filename>a00064</filename>
+  </compound>
+  <compound kind="page">
+    <name>hpp_doc_graphical_interface</name>
+    <title>Graphical user interface</title>
+    <filename>a00065</filename>
+  </compound>
+  <compound kind="page">
+    <name>hpp_doc_dependency_graph</name>
+    <title>Dependencies</title>
+    <filename>a00066</filename>
+  </compound>
+  <compound kind="page">
+    <name>index</name>
+    <title>Humanoid Path Planner Documentation</title>
+    <filename>index</filename>
+    <docanchor file="index">hpp_fcl_documentation</docanchor>
+    <docanchor file="index" title="What is Pinocchio?">OverviewIntro</docanchor>
+    <docanchor file="index" title="How to install Pinocchio?">OverviewInstall</docanchor>
+    <docanchor file="index" title="Simplest example with compilation command">OverviewSimple</docanchor>
+    <docanchor file="index" title="Compiling and running your program">OverviewSimpleCompile</docanchor>
+    <docanchor file="index" title="Explanation of the program">OverviewSimpleExplain</docanchor>
+    <docanchor file="index" title="More complex example with C++ and Python">OverviewComplex</docanchor>
+    <docanchor file="index" title="Compiling and running your program">OverviewComplexCompile</docanchor>
+    <docanchor file="index" title="Explanation of the program">OverviewComplexExplain</docanchor>
+    <docanchor file="index" title="About Python wrappings">OverviewPython</docanchor>
+    <docanchor file="index" title="How to cite Pinocchio">OverviewCite</docanchor>
+    <docanchor file="index" title="Where to go from here?">OverviewConclu</docanchor>
+    <docanchor file="index" title="Introduction">hpp_pinocchio_intro</docanchor>
+    <docanchor file="index">hpp_core_documentation</docanchor>
+    <docanchor file="index">hpp_constraints_documentation</docanchor>
+    <docanchor file="index">hpp_corbaserver_documentation</docanchor>
+    <docanchor file="index" title="Introduction">hppCorbaServer_sec_intro</docanchor>
+    <docanchor file="index" title="How to communicate with the CORBA server">hppCorbaServer_sec_howto</docanchor>
+    <docanchor file="index" title="How to embed a server in an application">hppCorbaServer_sec_embedding</docanchor>
+    <docanchor file="index" title="Introduction">hpp_template_corba_sec_intro</docanchor>
+    <docanchor file="index" title="Principle">hpp_template_corba_sec_principle</docanchor>
+    <docanchor file="index" title="How to">hpp_template_corba_sec_how_to</docanchor>
+    <docanchor file="index" title="Implementing the server">hpp_template_corba_subsec_server</docanchor>
+    <docanchor file="index" title="Implementing the client">hpp_template_corba_subsec_client</docanchor>
+    <docanchor file="index" title="Running the server and client">hpp_template_corba_subsec_running</docanchor>
+    <docanchor file="index">hpp_wholebody_step_documentation</docanchor>
+    <docanchor file="index">hpp_manipulation_documentation</docanchor>
+    <docanchor file="index">hpp_manipulation_urdf_documentation</docanchor>
+    <docanchor file="index" title="Basic use">intro_sec</docanchor>
+    <docanchor file="index" title="SRDF syntax">hpp_manipulation_urdf_srdf_syntax</docanchor>
+    <docanchor file="index">Handle</docanchor>
+    <docanchor file="index">Gripper</docanchor>
+    <docanchor file="index">Contact</docanchor>
+    <docanchor file="index" title="Extend the parser">hpp_manipulation_urdf_extend_sec</docanchor>
+    <docanchor file="index">hpp_manipulation_corba_documentation</docanchor>
+    <docanchor file="index" title="Introduction">gepetto_viewer_sec_intro</docanchor>
+    <docanchor file="index" title="CORBA interface">gepetto_gui_corba</docanchor>
+    <docanchor file="index" title="Graphical user interface">gepetto_gui_ui</docanchor>
+    <docanchor file="index" title="Introduction">hpp_gepetto_viewer_introduction</docanchor>
+    <docanchor file="index">hpp_tutorial_documentation</docanchor>
+  </compound>
+</tagfile>
